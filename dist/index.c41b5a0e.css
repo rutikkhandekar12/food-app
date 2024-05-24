@@ -1,0 +1,290 @@
+.card {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  display: grid;
+
+  &:hover {
+    z-index: 2;
+    transform: scale(.95);
+  }
+}
+
+.card-img img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 17rem;
+  box-shadow: 0 5px 15px #00000059;
+}
+
+.card .info {
+  margin-top: .8rem;
+  margin-left: .4rem;
+}
+
+.info h2, .rating {
+  color: #02060cbf;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cuisines {
+  color: #02060c99;
+}
+
+.rating {
+  align-items: center;
+  gap: .2rem;
+  width: 1.3rem;
+  display: flex;
+}
+
+.card-container {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem;
+  width: 81%;
+  height: 75%;
+  margin: 2rem auto;
+  transition: all 1s;
+  display: grid;
+}
+
+.shimmer-container {
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem;
+  width: 81%;
+  height: 75%;
+  margin: 2rem auto;
+  display: grid;
+}
+
+.shimmer {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  display: grid;
+}
+
+.shimmer-img {
+  background-color: #f4ecec;
+  border-radius: 1rem;
+  width: 100%;
+  height: 17rem;
+  margin-bottom: 16px;
+  box-shadow: 0 5px 15px #00000059;
+}
+
+.shimmer-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  display: flex;
+}
+
+.shimmer-info .name {
+  background-color: #f4ecec;
+  border-radius: 5px;
+  width: 98%;
+  height: 25px;
+  margin-bottom: 3px;
+}
+
+.shimmer-info .cuisine {
+  background-color: #f4ecec;
+  border-radius: 5px;
+  width: 98%;
+  height: 53px;
+  margin-bottom: 9px;
+}
+
+.APZW2a_search {
+  justify-content: center;
+  width: 81%;
+  display: flex;
+  position: absolute;
+  top: 10rem;
+}
+
+.APZW2a_search Input {
+  background: #e8e3cd;
+  border: 2px solid #000;
+  width: 48%;
+  height: 2.5rem;
+}
+
+.APZW2a_search Button {
+  background-color: #3e5962;
+  border: 2px solid #000;
+  width: 13%;
+  height: 2.5rem;
+
+  &:hover {
+    background-color: #192d33;
+  }
+}
+
+.footer {
+  color: #fff;
+  background-color: #333;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  justify-content: space-between;
+  display: flex;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer-column ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navbar {
+  color: #ffebcd;
+  cursor: pointer;
+  align-items: center;
+  gap: 2rem;
+  font-size: 17px;
+  font-weight: 400;
+  list-style-type: none;
+  display: flex;
+  position: absolute;
+  top: 14px;
+  right: 46px;
+}
+
+.navbar li:hover {
+  color: #00fff7;
+  transform: scale(1.1);
+}
+
+.signup-body {
+  padding: 0 !important;
+}
+
+.google-btn {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  display: flex;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+.or {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.header {
+  background-image: url("background.dbc297d5.jpg");
+  border: 1px solid gray;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+
+.title h2 {
+  text-align: center;
+  color: #e8cbcb;
+  height: 4rem;
+  margin-top: 4rem;
+  font-family: Ubuntu, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 98vw;
+}
+
+.aBDRUW_search {
+  width: 50%;
+  position: static;
+  top: 0;
+}
+
+.aBDRUW_search Input {
+  width: 83%;
+}
+
+.aBDRUW_search Button {
+  width: 17%;
+}
+
+.search {
+  width: 50%;
+  position: static;
+  top: 0;
+}
+
+.search Input {
+  width: 83%;
+}
+
+.search Button {
+  width: 17%;
+}
+
+.menu-header {
+  background-color: #faebd7;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+}
+
+.menu-title {
+  width: 14%;
+}
+
+.menu-title h2 {
+  color: #096f91;
+  font-family: Ubuntu, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+/*# sourceMappingURL=index.c41b5a0e.css.map */

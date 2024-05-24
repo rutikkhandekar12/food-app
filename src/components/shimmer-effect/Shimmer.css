@@ -1,0 +1,98 @@
+/* .shimmer-header {
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    height: 250px;
+    width: 100%;
+    background-color: #f4ecec;
+  }
+
+  .shimmer-title{
+    width: 100%;
+  } */
+
+  /* .shimmer-navbar{ 
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 14px;
+    right: 46px;
+    width: 30%;
+  } */
+
+  /* .shimmer-navbar p{
+    width: 20%;
+    height: 30px;
+    background-color: #d7c8c8;
+  }
+   */
+  /* .shimmer-search{
+    width: 48%;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 1.5rem;
+    background-color: #d7c8c8;
+  } */
+
+  /* .shimmer-title h2 {
+    background-color: #d7c8c8;
+    height: 4rem;
+    margin-top: 4rem;
+    width: 20%;
+    margin: auto;
+    margin-top: 3rem;
+  } */
+
+.shimmer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  width: 81%;
+  height: 75%;
+  margin: auto;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.shimmer {
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  display: grid;
+  cursor: pointer;
+}
+
+.shimmer-img {
+  width: 100%;
+  border-radius: 1rem;
+  height: 17rem;
+  background-color: #f4ecec;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 16px;
+}
+
+.shimmer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.shimmer-info .name {
+  width: 98%;
+  border-radius: 5px;
+  height: 25px;
+  background-color: #f4ecec;
+  margin-bottom: 3px;
+}
+
+.shimmer-info .cuisine {
+  background-color: #f4ecec;
+  border-radius: 5px;
+  width: 98%;
+  height: 53px;
+  margin-bottom: 9px;
+}

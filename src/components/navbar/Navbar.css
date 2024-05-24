@@ -1,0 +1,19 @@
+.navbar{
+    color: #ffebcd;
+    cursor: pointer;
+    gap: 2rem;
+    font-size: 17px;
+    font-weight: 400;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 14px;
+    right: 46px;
+}
+
+.navbar li:hover{
+    color: rgb(0, 255, 247);
+    transform: scale(1.1);
+    
+}

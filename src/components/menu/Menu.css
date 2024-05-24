@@ -1,0 +1,33 @@
+.search{
+    top: 0;
+    position: static;
+    width: 50%;
+}
+
+.search Input{
+    width: 83%;
+}
+
+.search Button{
+    width: 17%;
+} 
+
+.menu-header{
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    display: flex;
+    padding: 12px;
+    background-color: antiquewhite;
+}
+
+.menu-title{
+    width: 14%;
+}
+
+.menu-title h2{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #096f91;
+}
