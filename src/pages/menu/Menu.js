@@ -2,9 +2,9 @@ import Login from "../authentication/Login";
 import Search from "../../components/search-input/Search";
 import { Heading } from "@chakra-ui/react";
 import menuStyle from "./MenuSearch.module.css";
-import "./Menu.css";
+import "./Menu.scss";
 import Body from "./body/Menubody";
-import Stepper from "../../components/stepper-chakra-ui/Stepper";
+
 
 const Menu = () => {
   return (

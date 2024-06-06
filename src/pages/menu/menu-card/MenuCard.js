@@ -1,6 +1,6 @@
 import { Box, Text, Heading, Image, Button } from "@chakra-ui/react";
 import CardImg from "../../../assets/food-icon.jpg";
-import "./MenuCard.css";
+import "./MenuCard.scss";
 import starIcon from "../../../assets/star-icon.png";
 import rupee from "../../../assets/rupee.png";
 

@@ -8,7 +8,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import MenuCard from "../menu-card/MenuCard";
-import "./MenuOptions.css";
+import "./MenuOptions.scss";
 import CustomAccordion from "../../../components/accordian/CustomAccordion";
 
 
