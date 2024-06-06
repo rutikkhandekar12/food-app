@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './Footer.css';
+import './Footer.scss';
 import MenuContext from '../../../utils/MenuContext';
 
 const Footer = () => {

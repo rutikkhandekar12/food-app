@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Card from "../../../components/card/Card";
-import "./Body.css";
+import "./Body.scss";
 import { cards } from "../../../../Config/Config";
 import * as chakra from "@chakra-ui/react/dist";
 import Shimmer from "../../../components/shimmer-effect/Shimmer";

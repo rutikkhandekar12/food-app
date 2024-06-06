@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css';
+import './Navbar.scss';
 import Login from '../../pages/authentication/Login';
 import { Link } from "react-router-dom";
 

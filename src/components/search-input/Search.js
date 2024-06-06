@@ -1,5 +1,5 @@
 import useFilter from "../../Utils/useFilter";
-import searchStyle from "./Search.module.css";
+import searchStyle from "./Search.module.scss";
 import { Input, Button } from "@chakra-ui/react";
 
 const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {

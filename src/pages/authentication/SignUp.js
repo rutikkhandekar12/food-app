@@ -11,7 +11,7 @@ import {
   TabPanels,
 } from "@chakra-ui/react";
 import { GoogleIcon } from "../../chakra-icons/GoogleIcon";
-import "./SignUp.css";
+import "./SignUp.scss";
 
 const SignUp = () => {
   return (

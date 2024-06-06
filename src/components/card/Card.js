@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { image_url } from "../../../Config/Config";
 import rating from "../../assets/rating-icon.png";
-import "./Card.css";
+import "./Card.scss";
 
 import React from "react";
 

@@ -26,7 +26,7 @@ import {
 import { GoogleIcon } from "../../chakra-icons/GoogleIcon";
 import SignUp from "./SignUp";
 import React from "react";
-import "./Login.css";
+import "./Login.scss";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

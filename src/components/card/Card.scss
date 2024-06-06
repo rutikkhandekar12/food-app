@@ -1,0 +1,42 @@
+.card {
+  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  display: grid;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.95);
+    z-index: 2;
+  }
+
+  .card-img img {
+    width: 100%;
+    border-radius: 1rem;
+    height: 17rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .info {
+    margin-top: 0.8rem;
+    margin-left: 0.4rem;
+  }
+
+  h2,
+  .rating {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(2, 6, 12, 0.75);
+  }
+
+  .cuisines {
+    color: rgba(2, 6, 12, 0.6);
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    width: 1.3rem;
+  }
+}
