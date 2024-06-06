@@ -1,16 +1,10 @@
+import useFilter from "../../Utils/useFilter";
 import searchStyle from "./Search.module.css";
 import { Input, Button } from "@chakra-ui/react";
 
 const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
 
   styles = menuStyle || searchStyle;
-
-  const filter = (searchText, cards) => {
-    const filteredData = cards?.filter((data) => {
-      return data?.info?.name?.toLowerCase().includes(searchText?.toLowerCase());
-    });
-    return filteredData;
-  };
 
   return (
     <div className={styles.search}>
@@ -23,7 +17,7 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
         colorScheme="teal"
         variant="solid"
         onClick={() => {
-          const filteredData = filter(search, allCard);
+          const filteredData = useFilter(search, allCard);
           setFilteredCard(filteredData);
         }}
       >

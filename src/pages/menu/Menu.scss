@@ -1,0 +1,107 @@
+.menu {
+  width: 100%;
+}
+
+.search {
+  top: 0;
+  position: static;
+  width: 50%;
+}
+
+.search {
+  Input {
+    width: 83%;
+  }
+}
+
+.search {
+  Button {
+    width: 17%;
+  }
+}
+
+.menu-header {
+  background-color: #ffffff;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.menu-title {
+  width: 14%;
+}
+
+.menu-title {
+  > h2 {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #096f91;
+  }
+}
+
+.card-menu {
+  max-width: 800px;
+  min-height: 800px;
+  margin: 20px auto 0;
+}
+
+.title-restau {
+  letter-spacing: -0.4px;
+  color: #02060ceb;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.card-menu .card-menu .restau-desc {
+  border: 1px solid gray;
+  border-radius: 27px;
+  flex-direction: column;
+  gap: 24px;
+  height: 195px;
+  padding: 24px;
+  display: flex;
+  box-shadow: 0 27px 9px #0006, 0 7px 44px -15px #0000004d, inset 0 -11px #0003;
+}
+
+.restau-desc .stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 70px;
+}
+
+.restau-desc .cuisine {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.1px;
+  color: rgb(241, 87, 0);
+}
+
+.dist-fees {
+  font-weight: 300;
+  font-size: 12px;
+  color: #282c3f;
+}
+
+.restau-desc .title-of-card {
+  letter-spacing: -0.3px;
+  color: #02060ceb;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-of-card > img {
+  width: 16px;
+}

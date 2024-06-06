@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Footer.css';
+import MenuContext from '../../../utils/MenuContext';
 
 const Footer = () => {
+
+  // const  context = useContext(MenuContext);
+  // console.log("contec...: ",context);
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-column">
+            {/* <h1>{context.user.name}</h1> */}
             <h3>About Us</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants</p>
           </div>

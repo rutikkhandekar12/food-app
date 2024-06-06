@@ -210,7 +210,10 @@
 }
 
 .header {
-  background-image: url("background.dbc297d5.jpg");
+  background-image: url("back-5.f850e479.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 68%;
+  background-attachment: fixed;
   border: 1px solid gray;
   justify-content: space-between;
   align-items: center;
@@ -220,11 +223,17 @@
   position: relative;
 }
 
+.header-slogan {
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  display: flex;
+}
+
 .title h2 {
   text-align: center;
   color: #e8cbcb;
-  height: 4rem;
-  margin-top: 4rem;
+  margin-top: 41px;
   font-family: Ubuntu, sans-serif;
   font-style: italic;
   font-weight: 700;
@@ -240,18 +249,26 @@
   width: 98vw;
 }
 
-.aBDRUW_search {
+.YRjE3W_search {
+  justify-content: center;
+  align-items: center;
   width: 50%;
+  display: flex;
   position: static;
   top: 0;
 }
 
-.aBDRUW_search Input {
+.YRjE3W_search Input {
+  border: 1px solid #9f5656;
   width: 83%;
 }
 
-.aBDRUW_search Button {
+.YRjE3W_search Button {
   width: 17%;
+}
+
+.menu {
+  width: 100%;
 }
 
 .search {
@@ -260,31 +277,180 @@
   top: 0;
 }
 
-.search Input {
-  width: 83%;
+.search {
+  & Input {
+    width: 83%;
+  }
 }
 
-.search Button {
-  width: 17%;
+.search {
+  & Button {
+    width: 17%;
+  }
 }
 
 .menu-header {
-  background-color: #faebd7;
+  background-color: #fff;
   justify-content: center;
   gap: 30px;
   width: 100%;
   padding: 12px;
   display: flex;
+  box-shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
 }
 
 .menu-title {
   width: 14%;
 }
 
-.menu-title h2 {
-  color: #096f91;
-  font-family: Ubuntu, sans-serif;
-  font-style: italic;
+.menu-title {
+  & > h2 {
+    color: #096f91;
+    font-family: Ubuntu, sans-serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+}
+
+.card-menu {
+  max-width: 800px;
+  min-height: 800px;
+  margin: 20px auto 0;
+}
+
+.title-restau {
+  letter-spacing: -.4px;
+  color: #02060ceb;
+  font-size: 24px;
   font-weight: 700;
+  line-height: 28px;
+}
+
+.card-menu .card-menu .restau-desc {
+  border: 1px solid gray;
+  border-radius: 27px;
+  flex-direction: column;
+  gap: 24px;
+  height: 195px;
+  padding: 24px;
+  display: flex;
+  box-shadow: 0 27px 9px #0006, 0 7px 44px -15px #0000004d, inset 0 -11px #0003;
+}
+
+.restau-desc .stepper-container {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 70px;
+  display: flex;
+}
+
+.restau-desc .cuisine {
+  letter-spacing: -.1px;
+  color: #f15700;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.dist-fees {
+  color: #282c3f;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.restau-desc .title-of-card {
+  letter-spacing: -.3px;
+  color: #02060ceb;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  display: flex;
+}
+
+.title-of-card > img {
+  width: 16px;
+}
+
+.item-img-btn {
+  width: 28%;
+  position: relative;
+  top: -11px;
+  left: 12px;
+
+  & img {
+    border-radius: 25px;
+    width: 310px;
+    height: 150px;
+  }
+
+  & button {
+    width: 129px;
+    height: -5rem;
+    position: absolute;
+    bottom: 0;
+    left: 35px;
+  }
+}
+
+.item-card-price {
+  align-items: center;
+  margin-top: 5px;
+  display: flex;
+
+  & > img {
+    width: 14px;
+    height: 12px;
+  }
+}
+
+.item-rating {
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  display: flex;
+
+  & > img {
+    width: 12px !important;
+  }
+}
+
+.item-card {
+  justify-content: space-between;
+  width: 800px;
+  height: 221px;
+  margin-left: -16px;
+  display: flex;
+}
+
+.item-title {
+  & > h3 {
+    letter-spacing: -.3px;
+    color: #02060cbf;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+}
+
+.item-img {
+  border-radius: 25px;
+  width: 360px;
+  height: 167px;
+}
+
+.stepper-card {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+.acco-items {
+  border-bottom-width: 7px;
+  border-radius: 10px;
+  margin-top: 27px;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */

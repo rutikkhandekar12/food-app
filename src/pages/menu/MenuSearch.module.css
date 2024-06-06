@@ -1,0 +1,17 @@
+.search{
+    width: 50%;
+    position: static;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.search Input{
+    width: 83%;
+    border: 1px solid #9f5656;
+}
+
+.search Button{
+    width: 17%;
+} 

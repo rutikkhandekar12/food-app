@@ -5,7 +5,7 @@ import "./App.css";
 import { Login } from "./src/pages/authentication/Login";
 import Shimmer from "./src/components/shimmer-effect/Shimmer";
 import { Outlet } from "react-router-dom";
-import Menu from "./src/components/menu/Menu";
+import Menu from "./src/pages/menu/Menu";
 
 const App = () => {
   return (
