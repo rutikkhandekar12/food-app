@@ -1,8 +1,8 @@
 
-const useFilter = (searchText, cards) =>{
+const useFilter = (searchText, allCards) =>{
 
-    const filteredData = cards?.filter((data) => {
-        return data?.info?.name?.toLowerCase().includes(searchText?.toLowerCase());
+    const filteredData = allCards?.filter((data) => {
+        return data?.info?.name?.trim().toLowerCase().includes(searchText?.trim().toLowerCase());
       });
 
     return filteredData;

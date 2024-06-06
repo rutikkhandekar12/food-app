@@ -1,0 +1,21 @@
+.searchList {
+  height: auto;
+  width: 47.5%;
+  background: #e8e3cd;
+  border-radius: 4px;
+  padding: 9px;
+  margin-top: 5px;
+  z-index: 20;
+  cursor: pointer;
+
+  li {
+    list-style: none;
+  }
+
+  &-images {
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 19px;
+    display: flex;
+  }
+}

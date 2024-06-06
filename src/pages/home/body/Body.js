@@ -37,7 +37,6 @@ const Body = () => {
     }
   }
 
-  console.log("restaurant id : ", allCard);
 
   return allCard?.length === 0 ? (
     <Shimmer />
