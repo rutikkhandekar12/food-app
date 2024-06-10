@@ -5,23 +5,38 @@ import "./Card.scss";
 
 import React from "react";
 
-const Card = ({ name, cloudinaryImageId, costForTwo, cuisines, avgRating, id}) => {
+const Card = ({
+  name,
+  cloudinaryImageId,
+  imageId,
+  action,
+  grid,
+  cuisines,
+  avgRating,
+  id,
+}) => {
+  console.log("top::", imageId, action);
+
+  const imageSrc = cloudinaryImageId
+    ? `${image_url}/${cloudinaryImageId}`
+    : `${image_url}/${imageId}`;
+
   return (
-    <div className="card">
-      <Link to={`/menu/${id}`}>
+    <Link to={`/menu/${id}`}>
+      <div className={action? "top-carousal-card" : grid? "grid-card" : "card"}>
         <div className="card-img">
-          <img src={`${image_url}/${cloudinaryImageId}`} alt="card-image" />
+          <img src={imageSrc} alt="card-image" />
         </div>
-        <div className="info">
+        { !action && <div className="info">
           <h2 className="title">{name}</h2>
           <p className="rating">
             <img src={rating} alt="rating" />
             <p>{avgRating}</p>
           </p>
           <p className="cuisines">{cuisines?.join(", ")}</p>
-        </div>
-      </Link>
-    </div>
+        </div>}
+      </div>
+    </Link>
   );
 };
 

@@ -1,59 +1,80 @@
-.card {
+.card, .grid-card {
   cursor: pointer;
   border-radius: 10px;
-  width: 100%;
   padding: 8px;
-  display: grid;
 }
 
-.card:hover {
+.card:hover, .grid-card:hover {
   z-index: 2;
   transform: scale(.95);
 }
 
-.card .card-img img {
+.card .card-img img, .grid-card .card-img img {
+  object-fit: cover;
   border-radius: 1rem;
   width: 100%;
-  height: 17rem;
+  height: 182px;
   box-shadow: 0 5px 15px #00000059;
 }
 
-.card .info {
-  margin-top: .8rem;
-  margin-left: .4rem;
+.card .info, .grid-card .info {
+  margin-top: .7rem;
+  margin-left: .3rem;
 }
 
-.card h2, .card .rating {
+.card h2, .card .rating, .grid-card h2, .grid-card .rating {
   color: #02060cbf;
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: 600;
 }
 
-.card .cuisines {
+.card .cuisines, .grid-card .cuisines {
   color: #02060c99;
+  font-size: 14px;
 }
 
-.card .rating {
+.card .rating, .grid-card .rating {
   align-items: center;
-  gap: .2rem;
-  width: 1.3rem;
+  gap: .1rem;
+  width: 1rem;
   display: flex;
 }
 
-.card-container {
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 2rem;
-  width: 81%;
-  height: 75%;
-  margin: 2rem auto;
+.card {
+  width: 300px;
+}
+
+.top-carousal-card {
+  width: 155px;
+  height: 180px;
+}
+
+.grid-card {
+  width: 260px;
+}
+
+.carousel-card {
+  gap: 1rem;
+  width: 100%;
+  height: 47%;
+  margin: auto;
   transition: all 1s;
-  display: grid;
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-heading {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 3rem auto 1rem;
+  display: flex;
 }
 
 .shimmer-container {
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 2rem;
-  width: 81%;
+  width: 75%;
   height: 75%;
   margin: 2rem auto;
   display: grid;
@@ -100,42 +121,16 @@
   margin-bottom: 9px;
 }
 
-.AYjprG_search {
-  flex-direction: column;
-  align-items: center;
-  width: 81%;
-  display: flex;
-  position: absolute;
-  top: 10rem;
-}
-
-.AYjprG_search Input {
-  background: #e8e3cd;
-  border: 2px solid #000;
-  width: 48%;
-  height: 2.5rem;
-}
-
-.AYjprG_search Button {
-  background-color: #3e5962;
-  border: 2px solid #000;
-  width: 13%;
-  height: 2.5rem;
-}
-
-.AYjprG_search Button:hover {
-  background-color: #192d33;
-}
-
 .searchList {
   z-index: 20;
   cursor: pointer;
   background: #e8e3cd;
   border-radius: 4px;
-  width: 47.5%;
-  height: auto;
-  margin-top: 5px;
-  padding: 9px;
+  width: 50%;
+  max-height: 349px;
+  margin-top: 10px;
+  padding: 13px 13px 0;
+  overflow: auto;
 }
 
 .searchList li {
@@ -146,6 +141,114 @@
   align-items: center;
   gap: 14px;
   margin-bottom: 19px;
+  display: flex;
+}
+
+.AYjprG_search {
+  flex-direction: row;
+  justify-content: center;
+  width: 75%;
+  display: flex;
+  position: absolute;
+  top: 10rem;
+}
+
+.AYjprG_search Input {
+  background: #fff;
+  border-radius: 0 5px 5px 0;
+  width: 450px;
+  height: 41px;
+  padding-left: 38px;
+}
+
+.AYjprG_search Button {
+  background-color: #fff;
+  border-radius: 5px 0 0 5px;
+  align-items: center;
+  gap: 9px;
+  height: 41px;
+  display: flex;
+}
+
+.AYjprG_search Button:hover {
+  color: #fff;
+  background-color: tomato;
+}
+
+.AYjprG_accordian-panal {
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-top: 3px;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+}
+
+.AYjprG_search-icon {
+  z-index: 26;
+  position: absolute;
+  top: 11px;
+  left: 11px;
+}
+
+.home-page {
+  width: 75%;
+  margin: auto;
+}
+
+.restaurant-grid-card {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  display: grid;
+}
+
+.restaurant-grid-filter {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 1.3rem;
+  display: flex;
+}
+
+.restaurant-grid-filter Button {
+  height: 25px;
+  font-size: smaller;
+}
+
+.restaurant-grid-filter .filter-btn {
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  display: flex;
+}
+
+.card-filter {
+  flex-direction: column;
+  gap: 4px;
+  display: flex;
+}
+
+.renderFilterType {
+  width: 410px;
+  height: 250px;
+  overflow: auto;
+}
+
+.modalBody {
+  border-top: 1px solid #f1e9e9;
+}
+
+.filters {
+  border-right: 1px solid #f1e9e9;
+}
+
+.filters p {
+  background: #f0f8ff;
+  justify-content: center;
+  align-items: center;
+  width: 177px;
+  height: 52px;
   display: flex;
 }
 
@@ -235,13 +338,13 @@
 .header {
   background-image: url("back-5.f850e479.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 68%;
+  background-size: 100% 77%;
   background-attachment: fixed;
   border: 1px solid gray;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 250px;
+  height: 263px;
   padding: 1rem 1.5rem;
   position: relative;
 }

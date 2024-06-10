@@ -20,7 +20,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MenuOptions from "../menu-options/MenuOptions";
 import starIcon from "../../../assets/star.png";
-import CaptionCarousel from "../../../components/carousel/Carousel";
 
 const Menubody = () => {
   const { id } = useParams();
