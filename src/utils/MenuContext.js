@@ -6,8 +6,6 @@ const MenuContext = createContext({
     email: "rutik123@gmail.com",
   },
 });
-console.log("contextme kya hai: ", MenuContext);
-
 MenuContext.displayName = "MenuContext"
 
 export default MenuContext;

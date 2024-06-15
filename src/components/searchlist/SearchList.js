@@ -5,7 +5,7 @@ import "./SearchList.scss";
 
 const SearchList = ({ resultList }) => {
   return (
-    <div className="searchList">
+    <div className="searchList" >
       {resultList?.length === 0 ? (
         <li>Not found</li>
       ) : (

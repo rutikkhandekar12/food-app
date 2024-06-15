@@ -1,10 +1,21 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Image, Input } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Image,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import useFilter from "../../utils/useFilter";
 import SearchList from "../searchlist/SearchList";
 import searchStyle from "./Search.module.scss";
 import { useState } from "react";
-import { SearchIcon } from "@chakra-ui/icons";
-import serchIcon from "../../assets/search.png"
+import serchIcon from "../../assets/search.png";
+import location from "../../assets/location.png";
+import detector from "../../assets/detector.png";
 
 const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
   const [enter, setEnter] = useState(false);
@@ -34,21 +45,60 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
 
   return (
     <div className={styles.search}>
-      <Accordion allowMultiple>
-        <AccordionItem className={styles["location-detector"]} borderBottomWidth="0px" borderTopWidth="0px">
+      { !menuStyle && <Accordion allowMultiple>
+        <AccordionItem
+          className={styles["location-detector"]}
+          borderBottomWidth="0px"
+          borderTopWidth="0px"
+          borderRadius="5px"
+        >
           <h2>
-            <AccordionButton maxW="202px" _expanded={{ bg:"tomato", color:"white"}}>
-              <Box as="span" flex="1" textAlign="left" >
-                Akola, Maharashtra
+            <AccordionButton _expanded={{ bg: "#163c48", color: "white" }}>
+              <Box
+                as="span"
+                flex="1"
+                textAlign="left"
+                display="flex"
+                alignContent="center"
+                justifyContent="center"
+                gap="4px"
+              >
+                <Image src={location} boxSize="28px" />
+                <Text pt="2px">Akola, Maharashtra</Text>
               </Box>
-              <AccordionIcon/>
+              <AccordionIcon />
             </AccordionButton>
           </h2>
-          <AccordionPanel bg="white" className={styles["accordian-panal"]} pb="0px" pt="0px">Detect your location</AccordionPanel>
+          <AccordionPanel
+            bg="white"
+            className={styles["accordian-panal"]}
+            pb="0px"
+            pt="0px"
+            borderRadius="5px"
+          >
+            <Box
+              display="flex"
+              alignContent="center"
+              justifyContent="center"
+              gap="6px"
+              className={styles["accordian-panal-detect"]}
+            >
+              <Image src={detector} boxSize="26px"/>
+              <Text color="#e43636">Detect your location</Text>
+            </Box>
+          </AccordionPanel>
         </AccordionItem>
-      </Accordion>
+      </Accordion>}
       <Box position="relative">
-        {/* <Image src={serchIcon} className={styles["search-icon"]} sizes="3px"/> */}
+        <Image
+          src={serchIcon}
+          boxSize="26px"
+          position="absolute"
+          top="8px"
+          left="8px"
+          objectFit="cover"
+          zIndex="100"
+        />
         <Input
           focusBorderColor="lime"
           placeholder="Search your food..."

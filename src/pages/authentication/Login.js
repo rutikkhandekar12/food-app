@@ -23,7 +23,7 @@ import {
   WrapItem,
   useDisclosure,
 } from "@chakra-ui/react";
-import { GoogleIcon } from "../../chakra-icons/GoogleIcon";
+import { GoogleIcon } from "../../components/chakra-icons/GoogleIcon"
 import SignUp from "./SignUp";
 import React from "react";
 import "./Login.scss";

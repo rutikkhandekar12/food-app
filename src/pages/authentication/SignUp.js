@@ -10,7 +10,7 @@ import {
   Stack,
   TabPanels,
 } from "@chakra-ui/react";
-import { GoogleIcon } from "../../chakra-icons/GoogleIcon";
+import { GoogleIcon } from "../../components/chakra-icons/GoogleIcon";
 import "./SignUp.scss";
 
 const SignUp = () => {

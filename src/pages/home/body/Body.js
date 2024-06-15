@@ -12,28 +12,64 @@ import {
   Image,
   Text,
   useDisclosure,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay
 } from "@chakra-ui/react";
 import "./Body.scss";
+import axios from "axios";
 import Filter from "../../../components/filtermodal/FIlter";
 
 const Body = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [allCard, setAllCard] = useState([]);
+  const [page, setPage] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
   const [filteredCard, setFilteredCard] = useState([]);
   const { isOpen, onClose, onOpen } = useDisclosure();
 
+  console.log("scrollHeight: ", document.documentElement.scrollHeight);
+  console.log("innerHeight: ", window.innerHeight);
+  console.log("scrollTop: ", document.documentElement.scrollTop);
 
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {
+    addEventListener("scroll", () => handleInfiniteScroll());
+
+    return () => removeEventListener("scroll", () => handleInfiniteScroll());
+  }, [page]);
+
+  const handleInfiniteScroll = async () => {
+    const scrollPosition =
+      document.documentElement.scrollTop + window.innerHeight;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollThreshold = 20;
+
+    if (
+      document.documentElement.scrollTop + window.innerHeight + 80 >=
+      document.documentElement.scrollHeight
+    ) {
+      if (scrollHeight - scrollPosition < scrollThreshold) setHasMore(false);
+      if (hasMore) {
+        try {
+          const data = await axios.get(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+          );
+
+          const newCards =
+            data?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants || [];
+          setAllCard((prevCard) => [...prevCard, ...newCards]);
+        } catch (error) {
+          console.error(
+            "There was a problem with your axios operation:",
+            error
+          );
+        }
+      }
+    }
+  };
 
   async function getData() {
     try {
@@ -54,8 +90,6 @@ const Body = () => {
       console.error(error);
     }
   }
-
-
 
   return allCard?.length === 0 ? (
     <Shimmer />
@@ -83,7 +117,7 @@ const Body = () => {
         <Heading as="h2" fontSize="24px" mb="1rem">
           {data?.cards[2]?.card?.card?.title}
         </Heading>
-        <Filter/>
+        <Filter />
         <Box className="restaurant-grid-card">
           {allCard?.map((data) => {
             return (

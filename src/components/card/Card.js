@@ -15,8 +15,6 @@ const Card = ({
   avgRating,
   id,
 }) => {
-  console.log("top::", imageId, action);
-
   const imageSrc = cloudinaryImageId
     ? `${image_url}/${cloudinaryImageId}`
     : `${image_url}/${imageId}`;

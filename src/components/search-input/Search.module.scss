@@ -7,23 +7,27 @@
   justify-content: center;
 
   Input {
-    background: rgb(255, 255, 255);
+    background: #fff;
+    border-radius: 0 5px 5px 0;
     width: 450px;
     height: 41px;
-    border-radius: 0px 5px 5px 0px;
-    padding-left: 38px;
+    padding-left: 40px;
+    box-shadow: 0 20px 30px -10px #26394d;
   }
 
   Button {
     background-color: rgb(255, 255, 255);
+    border-radius: 5px 0 0 5px;
     align-items: center;
     gap: 9px;
+    justify-content: center;
     height: 41px;
     display: flex;
-    border-radius: 5px 0px 0px 5px;
+    box-shadow: 0 20px 30px -10px #26394d;
+    font-size: 15px;
 
     &:hover {
-      background-color: tomato;
+      background-color: #163c48;
       color: white;
     }
   }
@@ -46,6 +50,12 @@
   margin-top: 3px;
   padding-top: 0px;
   padding-bottom: 0px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: rgb(237, 233, 233);
+    color: red;
+  }
 }
 
 .search-icon {
@@ -53,4 +63,9 @@
   position: absolute;
   top: 11px;
   left: 11px;
+  width: 27px;
+  height: 27px;
+  padding-bottom: 5px;
+  object-fit: contain;
 }
+
