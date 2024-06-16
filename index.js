@@ -10,6 +10,10 @@ import App from "./App";
 import Parent from "./src/components/class-base/Parent";
 import Menu from "./src/pages/menu/Menu";
 import MenuCard from "./src/pages/menu/menu-card/MenuCard";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./store";
+import { store } from "./store";
 
 const About = lazy(() => import("./src/pages/about/About"));
 
@@ -47,7 +51,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <ChakraProvider>
-    <RouterProvider router={router} />
-  </ChakraProvider>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <ChakraProvider>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </PersistGate>
+  </Provider>
 );

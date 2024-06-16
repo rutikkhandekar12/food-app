@@ -16,10 +16,20 @@ import { useState } from "react";
 import serchIcon from "../../assets/search.png";
 import location from "../../assets/location.png";
 import detector from "../../assets/detector.png";
+import axios from "axios";
 
-const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
+const Search = ({
+  setFilteredCard,
+  setSearch,
+  search,
+  allCard,
+  menuStyle,
+  cart,
+}) => {
   const [enter, setEnter] = useState(false);
   const [resultList, setResultList] = useState([]);
+  const [city, setCity] = useState("Akola");
+  const [state, setState] = useState("Maharashtra");
 
   styles = menuStyle || searchStyle;
 
@@ -39,56 +49,88 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
       setResultList([]);
       setSearch(" ");
       setFilteredCard(filteredData);
-      console.log("result:", filteredData);
+    
     }
+  };
+
+  async function getLocation(lat, long) {
+    const location = await axios.get(`
+http://api.weatherapi.com/v1/current.json?key=d4f97f088a0547d9b1d81430241506&q=${lat},${long}&aqi=yes`);
+    setCity(location?.data?.location?.name);
+    setState(location?.data?.location?.region);
+    allowMultiple = false;
+  }
+
+  const successLocation = async (position) => {
+    const lat = position?.coords?.latitude;
+    const long = position?.coords?.longitude;
+    getLocation(lat, long);
+  };
+
+  const failLocation = (position) => {
+    console.log("failed location");
+  };
+
+  const handleDetectLocation = () => {
+    console.log("handlelocation detection");
+    const obj = navigator.geolocation.getCurrentPosition(
+      successLocation,
+      failLocation
+    );
+    console.log(obj);
   };
 
   return (
     <div className={styles.search}>
-      { !menuStyle && <Accordion allowMultiple>
-        <AccordionItem
-          className={styles["location-detector"]}
-          borderBottomWidth="0px"
-          borderTopWidth="0px"
-          borderRadius="5px"
-        >
-          <h2>
-            <AccordionButton _expanded={{ bg: "#163c48", color: "white" }}>
+      {!menuStyle && (
+        <Accordion allowMultiple>
+          <AccordionItem
+            className={styles["location-detector"]}
+            borderBottomWidth="0px"
+            borderTopWidth="0px"
+            borderRadius="5px"
+          >
+            <h2>
+              <AccordionButton _expanded={{ bg: "#163c48", color: "white" }}>
+                <Box
+                  as="span"
+                  flex="1"
+                  textAlign="left"
+                  display="flex"
+                  alignContent="center"
+                  justifyContent="center"
+                  gap="4px"
+                >
+                  <Image src={location} boxSize="28px" />
+                  <Text pt="2px">
+                    {city}, {state}
+                  </Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel
+              bg="white"
+              className={styles["accordian-panal"]}
+              pb="0px"
+              pt="0px"
+              borderRadius="5px"
+            >
               <Box
-                as="span"
-                flex="1"
-                textAlign="left"
                 display="flex"
                 alignContent="center"
                 justifyContent="center"
-                gap="4px"
+                gap="6px"
+                className={styles["accordian-panal-detect"]}
+                onClick={handleDetectLocation}
               >
-                <Image src={location} boxSize="28px" />
-                <Text pt="2px">Akola, Maharashtra</Text>
+                <Image src={detector} boxSize="26px" />
+                <Text color="#e43636">Detect your location</Text>
               </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel
-            bg="white"
-            className={styles["accordian-panal"]}
-            pb="0px"
-            pt="0px"
-            borderRadius="5px"
-          >
-            <Box
-              display="flex"
-              alignContent="center"
-              justifyContent="center"
-              gap="6px"
-              className={styles["accordian-panal-detect"]}
-            >
-              <Image src={detector} boxSize="26px"/>
-              <Text color="#e43636">Detect your location</Text>
-            </Box>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>}
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      )}
       <Box position="relative">
         <Image
           src={serchIcon}
@@ -99,13 +141,15 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, menuStyle }) => {
           objectFit="cover"
           zIndex="100"
         />
-        <Input
-          focusBorderColor="lime"
-          placeholder="Search your food..."
-          onChange={(e) => handleSearch(e)}
-          onKeyDown={(e) => handleEnter(e)}
-          value={search}
-        />
+        {!cart && (
+          <Input
+            focusBorderColor="lime"
+            placeholder="Search your food..."
+            onChange={(e) => handleSearch(e)}
+            onKeyDown={(e) => handleEnter(e)}
+            value={search}
+          />
+        )}
 
         {search && search !== " " && <SearchList resultList={resultList} />}
       </Box>

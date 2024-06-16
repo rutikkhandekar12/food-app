@@ -26,9 +26,6 @@ const Body = () => {
   const [filteredCard, setFilteredCard] = useState([]);
   const { isOpen, onClose, onOpen } = useDisclosure();
 
-  console.log("scrollHeight: ", document.documentElement.scrollHeight);
-  console.log("innerHeight: ", window.innerHeight);
-  console.log("scrollTop: ", document.documentElement.scrollTop);
 
   useEffect(() => {
     getData();

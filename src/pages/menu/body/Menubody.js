@@ -20,6 +20,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MenuOptions from "../menu-options/MenuOptions";
 import starIcon from "../../../assets/star.png";
+import Footer from "../../home/footer/Footer";
+import menuFooter from "../MenuFooter.module.scss";
 
 const Menubody = () => {
   const { id } = useParams();
@@ -47,75 +49,87 @@ const Menubody = () => {
     }
   }
 
-  console.log("MenuOptions", menuOpt);
+
 
   return (
-    <div className="card-menu">
-      <Heading as="h2" size="lg" className="title-restau">
-        {menu[0]?.card?.card?.text}
-      </Heading>
-      <Box mt="4" className="restau-desc">
-        <Box mb="23px">
-          <Heading size="md" className="title-of-card">
-            <img src={starIcon} alt="rating" />
-            {menu[2]?.card?.card?.info?.avgRating} (
-            {menu[2]?.card?.card?.info?.totalRatingsString}) |{" "}
-            {menu[2]?.card?.card?.info?.costForTwoMessage}
-          </Heading>
-          <Text py="2" className="cuisine">
-            {menu[2]?.card?.card?.info?.labels[2]?.message}
-          </Text>
+    <>
+      <div className="card-menu">
+        <Heading as="h2" size="lg" className="title-restau">
+          {menu[0]?.card?.card?.text}
+        </Heading>
+        <Box mt="4" className="restau-desc">
+          <Box mb="23px">
+            <Heading size="md" className="title-of-card">
+              <img src={starIcon} alt="rating" />
+              {menu[2]?.card?.card?.info?.avgRating} (
+              {menu[2]?.card?.card?.info?.totalRatingsString}) |{" "}
+              {menu[2]?.card?.card?.info?.costForTwoMessage}
+            </Heading>
+            <Text py="2" className="cuisine">
+              {menu[2]?.card?.card?.info?.labels[2]?.message}
+            </Text>
+          </Box>
+          <Stepper
+            orientation="vertical"
+            h="70px"
+            gap="0"
+            mt="-40px"
+            mb="-24px"
+          >
+            <Step className="stepper-container">
+              <StepIndicator w="10px" h="10px">
+                <StepStatus complete={<StepIcon />} />
+              </StepIndicator>
+              <Box flexShrink="0" fontSize="14px">
+                <StepTitle className="stepper-card">
+                  <Text fontSize="14px">Outlet</Text>{" "}
+                  <Text fontWeight="500" fontSize="14px" color="gray.300">
+                    {menu[2]?.card?.card?.info?.areaName}
+                  </Text>
+                </StepTitle>
+              </Box>
+              <StepSeparator />
+            </Step>
+            <Step className="stepper-container">
+              <StepIndicator w="10px" h="10px">
+                <StepStatus complete={<StepIcon />} />
+              </StepIndicator>
+              <Box flexShrink="0" fontSize="14px">
+                <StepTitle fontSize="14px">
+                  {menu[2]?.card?.card?.info?.sla?.slaString}
+                </StepTitle>
+              </Box>
+              <StepSeparator />
+            </Step>
+          </Stepper>
+          <hr style={{ marginBottom: "-19px" }}></hr>
+          <Box>
+            <Text className="dist-fees">
+              {" "}
+              {menu[2]?.card?.card?.info?.expectationNotifiers[0] !== null &&
+                menu[2]?.card?.card?.info?.expectationNotifiers[0]?.enrichedText?.replace(
+                  /<[^>]*>/g,
+                  ""
+                )}
+            </Text>
+          </Box>
+          <Box className="list-items">
+            {menuOpt?.map((item) => {
+              if (item?.card?.card?.title) {
+                return (
+                  <MenuOptions
+                    key={item?.card?.card?.id}
+                    options={item?.card?.card}
+                  />
+                );
+              }
+            })}
+          </Box>
+          <Footer menuFooter={menuFooter}/>
         </Box>
-        <Stepper orientation="vertical" h="70px" gap="0" mt="-40px" mb="-24px">
-          <Step className="stepper-container">
-            <StepIndicator w="10px" h="10px">
-              <StepStatus complete={<StepIcon />} />
-            </StepIndicator>
-            <Box flexShrink="0" fontSize="14px">
-              <StepTitle className="stepper-card">
-                <Text fontSize="14px">Outlet</Text>{" "}
-                <Text fontWeight="500" fontSize="14px" color="gray.300">
-                  {menu[2]?.card?.card?.info?.areaName}
-                </Text>
-              </StepTitle>
-            </Box>
-            <StepSeparator />
-          </Step>
-          <Step className="stepper-container">
-            <StepIndicator w="10px" h="10px">
-              <StepStatus complete={<StepIcon />} />
-            </StepIndicator>
-            <Box flexShrink="0" fontSize="14px">
-              <StepTitle fontSize="14px">
-                {menu[2]?.card?.card?.info?.sla?.slaString}
-              </StepTitle>
-            </Box>
-            <StepSeparator />
-          </Step>
-        </Stepper>
-        <hr style={{ marginBottom: "-19px" }}></hr>
-        <Box>
-          <Text className="dist-fees">
-            {" "}
-            {menu[2]?.card?.card?.info?.expectationNotifiers[0] !== null &&
-              menu[2]?.card?.card?.info?.expectationNotifiers[0]?.enrichedText?.replace(
-                /<[^>]*>/g,
-                ""
-              )}
-          </Text>
-        </Box>
-        {menuOpt?.map((item) => {
-          if (item?.card?.card?.title) {
-            return (
-              <MenuOptions
-                key={item?.card?.card?.id}
-                options={item?.card?.card}
-              />
-            );
-          }
-        })}
-      </Box>
-    </div>
+      </div>
+      
+    </>
   );
 };
 

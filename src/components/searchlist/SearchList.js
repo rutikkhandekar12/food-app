@@ -13,7 +13,7 @@ const SearchList = ({ resultList }) => {
           return (
             <Box key={list?.info?.id}>
               <Link to={`/menu/${list?.info?.id}`}  className="searchList-images">
-                {console.log("lisssssssst: ", list)}
+          
                 <Image
                   src={`${image_url}/${list?.info?.cloudinaryImageId}`}
                   alt="list-img"
