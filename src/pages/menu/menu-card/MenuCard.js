@@ -39,7 +39,7 @@ const MenuCard = ({
 
   const handleDecrease = () => {
     console.log("handleDecrease Clicked");
-    if(quantity > 1) setQuantity((prev) => prev - 1);
+    if (quantity > 1) setQuantity((prev) => prev - 1);
   };
 
   const handleIncrease = () => {
@@ -115,7 +115,7 @@ const MenuCard = ({
                 boxSize={5}
                 color="white"
                 p="2px"
-                onClick={handleDecrease}
+                onClick={handleIncrease}
               />
               <Button colorScheme="teal" onClick={handleAddToCart}>
                 ADD (<Text>{quantity}</Text>)
@@ -126,7 +126,7 @@ const MenuCard = ({
                 boxSize={5}
                 color="white"
                 p="2px"
-                onClick={handleIncrease}
+                onClick={handleDecrease}
               />
             </Box>
           </>
@@ -138,7 +138,7 @@ const MenuCard = ({
               boxSize={5}
               color="white"
               p="2px"
-              onClick={handleDecrease}
+              onClick={handleIncrease}
             />
             <Button colorScheme="teal" onClick={handleAddToCart}>
               ADD (<Text>{quantity}</Text>)

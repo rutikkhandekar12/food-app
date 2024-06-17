@@ -24,7 +24,7 @@ const Footer = ({menuFooter}) => {
           </div>
           <div className={styles["footer-column"]}>
             <h3>Contact Us</h3>
-            <p>Email: foodbajar.official@gmail.com</p>
+            <p>Email: foodbazaar.official@gmail.com</p>
             <p>Phone: 123-456-7890</p>
           </div>
         </div>

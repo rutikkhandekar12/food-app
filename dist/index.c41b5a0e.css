@@ -402,7 +402,6 @@
   gap: 30px;
   width: 100%;
   margin-bottom: 2rem;
-  padding: 12px;
   display: flex;
   box-shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
 }
@@ -448,16 +447,6 @@
   align-items: center;
   gap: 4px;
   display: flex;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.App {
-  width: 98vw;
 }
 
 .card-menu {

@@ -64,14 +64,11 @@ const Cart = () => {
 
   const calculateSubtotal = () => {
     const subtotal = cartItems.reduce((acc, item) => {
-      const price = item.price? item.price : item.defaultPrice;
-      console.log("price:::", price)
-      console.log("item.quantity:::", item.quantity);
-      return acc + price * item.quantity
-    },0);
+      const price = item.price ? item.price / 100 : item.defaultPrice / 100;
+      return acc + price * item.quantity.toFixed(2);
+    }, 0);
 
-    console.log("subtotal::::",subtotal);
-    // console.log("item.defaultPrice::::",item.defaultPrice);
+    return subtotal;
   };
 
   const calculateTotal = () => {
@@ -207,14 +204,15 @@ const Cart = () => {
         <Divider my={6} />
         <Flex justify="space-between" align="center" mb={4}>
           <Text fontSize="lg">Subtotal:</Text>
-          <Text fontSize="lg" fontWeight="bold">
-            ${calculateSubtotal()}
+          <Text fontSize="lg" fontWeight="bold"  display="flex" alignItems="center" gap="3px">
+            <Image src={rupee} alt="rupee" boxSize={3} />
+            {calculateSubtotal()}
           </Text>
         </Flex>
         <Flex justify="space-between" align="center" mb={4}>
           <Text fontSize="xl">Total:</Text>
-          <Text fontSize="xl" fontWeight="bold">
-            ${calculateTotal()}
+          <Text fontSize="xl" fontWeight="bold"  display="flex" alignItems="center" gap="3px">
+            <Image src={rupee} alt="rupee" boxSize={3} /> {calculateTotal()}
           </Text>
         </Flex>
         <Button
@@ -235,18 +233,24 @@ const Cart = () => {
               <Text mb={4}>Please confirm your order details:</Text>
               <Flex justify="space-between" align="center">
                 <Text>Subtotal:</Text>
-                <Text fontWeight="bold">${calculateSubtotal()}</Text>
+                <Text fontWeight="bold" display="flex" alignItems="center" gap="3px">
+                  <Image src={rupee} alt="rupee" boxSize={3} />
+                  {calculateSubtotal()}
+                </Text>
               </Flex>
               <Flex justify="space-between" align="center" mt={2}>
                 <Text>Delivery Charge:</Text>
-                <Text fontWeight="bold">
+                <Text fontWeight="bold"  display="flex" alignItems="center" gap="3px">
                   <Image src={rupee} alt="rupee" boxSize={3} />
                   {deliveryCharge.toFixed(2)}
                 </Text>
               </Flex>
               <Flex justify="space-between" align="center" mt={2}>
                 <Text>Total:</Text>
-                <Text fontWeight="bold">${calculateTotal()}</Text>
+                <Text fontWeight="bold"  display="flex" alignItems="center" gap="3px">
+                  <Image src={rupee} alt="rupee" boxSize={3} />
+                  {calculateTotal()}
+                </Text>
               </Flex>
               <Flex justify="space-between" align="center" mt={2}>
                 <Text>Payment Method:</Text>

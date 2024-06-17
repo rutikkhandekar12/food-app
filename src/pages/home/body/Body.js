@@ -16,6 +16,7 @@ import {
 import "./Body.scss";
 import axios from "axios";
 import Filter from "../../../components/filtermodal/FIlter";
+import { debounce } from "lodash";
 
 const Body = () => {
   const [search, setSearch] = useState("");
@@ -25,17 +26,11 @@ const Body = () => {
   const [hasMore, setHasMore] = useState(true);
   const [filteredCard, setFilteredCard] = useState([]);
   const { isOpen, onClose, onOpen } = useDisclosure();
-
+  const eventRef = useRef(null);
 
   useEffect(() => {
     getData();
   }, []);
-
-  useEffect(() => {
-    addEventListener("scroll", () => handleInfiniteScroll());
-
-    return () => removeEventListener("scroll", () => handleInfiniteScroll());
-  }, [page]);
 
   const handleInfiniteScroll = async () => {
     const scrollPosition =
@@ -43,30 +38,46 @@ const Body = () => {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollThreshold = 20;
 
-    if (
-      document.documentElement.scrollTop + window.innerHeight + 80 >=
-      document.documentElement.scrollHeight
-    ) {
-      if (scrollHeight - scrollPosition < scrollThreshold) setHasMore(false);
-      if (hasMore) {
-        try {
-          const data = await axios.get(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-          );
+    if (scrollPosition + 1 >= scrollHeight) {
+      console.log("handle remove event call.......");
+      console.log("hasMore...:::", hasMore);
+      removeEventListener("scroll", eventRef.current);
+      setHasMore(false);
+      return;
+    }
 
-          const newCards =
-            data?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-              ?.restaurants || [];
+    if (scrollPosition + 300 >= scrollHeight && hasMore) {
+      console.log("hasMore...:::", hasMore);
+      console.log("loding new cards........");
+      try {
+        const data = await axios.get(
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const newCards =
+          data?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants || [];
+
+        // If newCards is empty, there's no more data
+        if (newCards.length === 0) {
+          setHasMore(false);
+        } else {
           setAllCard((prevCard) => [...prevCard, ...newCards]);
-        } catch (error) {
-          console.error(
-            "There was a problem with your axios operation:",
-            error
-          );
+          setFilteredCard((prevCard) => [...prevCard, ...newCards]);
         }
+      } catch (error) {
+        console.error("There was a problem with your axios operation:", error);
       }
     }
   };
+
+  eventRef.current = debounce(handleInfiniteScroll, 200);
+
+  useEffect(() => {
+    addEventListener("scroll", eventRef.current);
+
+    return () => removeEventListener("scroll", eventRef.current);
+  }, [hasMore]);
 
   async function getData() {
     try {
@@ -114,9 +125,9 @@ const Body = () => {
         <Heading as="h2" fontSize="24px" mb="1rem">
           {data?.cards[2]?.card?.card?.title}
         </Heading>
-        <Filter />
+        <Filter setFilteredCard={setFilteredCard} filteredCard={filteredCard} />
         <Box className="restaurant-grid-card">
-          {allCard?.map((data) => {
+          {filteredCard?.map((data) => {
             return (
               <>
                 <Card {...data?.info} grid="grid" key={data?.info?.id} />
