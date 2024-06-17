@@ -12,11 +12,13 @@ import {
 import useFilter from "../../utils/useFilter";
 import SearchList from "../searchlist/SearchList";
 import searchStyle from "./Search.module.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import serchIcon from "../../assets/search.png";
 import location from "../../assets/location.png";
 import detector from "../../assets/detector.png";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+import LocationContext from "../../context/LocationContext";
 
 const Search = ({
   setFilteredCard,
@@ -28,8 +30,11 @@ const Search = ({
 }) => {
   const [enter, setEnter] = useState(false);
   const [resultList, setResultList] = useState([]);
-  const [city, setCity] = useState("Akola");
-  const [state, setState] = useState("Maharashtra");
+  const [city, setCity] = useState("Guidy");
+  const [state, setState] = useState("Chennai");
+  const dispatch = useDispatch();
+
+  const { setLocation } = useContext(LocationContext);
 
   styles = menuStyle || searchStyle;
 
@@ -49,33 +54,27 @@ const Search = ({
       setResultList([]);
       setSearch(" ");
       setFilteredCard(filteredData);
-    
     }
   };
 
   async function getLocation(lat, long) {
     const location = await axios.get(`
-http://api.weatherapi.com/v1/current.json?key=d4f97f088a0547d9b1d81430241506&q=${lat},${long}&aqi=yes`);
+    http://api.weatherapi.com/v1/current.json?key=d4f97f088a0547d9b1d81430241506&q=${lat},${long}&aqi=yes`);
     setCity(location?.data?.location?.name);
     setState(location?.data?.location?.region);
-    allowMultiple = false;
   }
 
   const successLocation = async (position) => {
     const lat = position?.coords?.latitude;
     const long = position?.coords?.longitude;
+    setLocation({ lat, long });
     getLocation(lat, long);
-  };
-
-  const failLocation = (position) => {
-    console.log("failed location");
   };
 
   const handleDetectLocation = () => {
     console.log("handlelocation detection");
     const obj = navigator.geolocation.getCurrentPosition(
       successLocation,
-      failLocation
     );
     console.log(obj);
   };

@@ -17,6 +17,7 @@ import "./Body.scss";
 import axios from "axios";
 import Filter from "../../../components/filtermodal/FIlter";
 import { debounce } from "lodash";
+import LocationContext from "../../../context/LocationContext";
 
 const Body = () => {
   const [search, setSearch] = useState("");
@@ -26,11 +27,15 @@ const Body = () => {
   const [hasMore, setHasMore] = useState(true);
   const [filteredCard, setFilteredCard] = useState([]);
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const { location } = useContext(LocationContext);
   const eventRef = useRef(null);
+
+  console.log("lat.....",location.lat);
+  console.log("long........",location.long);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [location]);
 
   const handleInfiniteScroll = async () => {
     const scrollPosition =
@@ -51,7 +56,7 @@ const Body = () => {
       console.log("loding new cards........");
       try {
         const data = await axios.get(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+          `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
 
         const newCards =
@@ -71,7 +76,7 @@ const Body = () => {
     }
   };
 
-  eventRef.current = debounce(handleInfiniteScroll, 200);
+  eventRef.current = debounce(handleInfiniteScroll, 100);
 
   useEffect(() => {
     addEventListener("scroll", eventRef.current);
@@ -82,7 +87,7 @@ const Body = () => {
   async function getData() {
     try {
       const res = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.89960&lng=80.22090&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
       );
       const data = await res.json();
       setData(data?.data);

@@ -1,11 +1,5 @@
 import { createContext } from "react";
 
-const MenuContext = createContext({
-  user: {
-    name: "rutik khandekar",
-    email: "rutik123@gmail.com",
-  },
-});
-MenuContext.displayName = "MenuContext"
+const variableContext = createContext();
 
-export default MenuContext;
+export default variableContext;

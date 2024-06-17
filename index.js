@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./store";
 import { store } from "./store";
+import LocationProvider from "./src/context/locationProvider";
 
 const About = lazy(() => import("./src/pages/about/About"));
 
@@ -51,9 +52,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <ChakraProvider>
-        <RouterProvider router={router} />
-      </ChakraProvider>
+      <LocationProvider>
+        <ChakraProvider>
+          <RouterProvider router={router} />
+        </ChakraProvider>
+      </LocationProvider>
     </PersistGate>
   </Provider>
 );
