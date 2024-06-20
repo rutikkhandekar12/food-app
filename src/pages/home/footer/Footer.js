@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import homeFooter from './Footer.module.scss';
-import MenuContext from '../../../utils/MenuContext';
-import { Heading, Text } from '@chakra-ui/react';
+import * as homeFooter from './Footer.module.scss';
+import { Text } from '@chakra-ui/react';
 
 const Footer = ({menuFooter}) => {
 
