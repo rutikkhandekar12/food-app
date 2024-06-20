@@ -24,7 +24,6 @@ const Search = ({
   setSearch,
   search,
   allCard,
-  menuStyles,
   cart,
 }) => {
   const [resultList, setResultList] = useState([]);
@@ -33,7 +32,7 @@ const Search = ({
 
   const { setLocation } = useContext(VariableContext);
 
-  const styles = menuStyles || searchStyles;
+  const styles = searchStyles;
 
   const handleSearch = (e) => {
     const searchValue = e.target.value;

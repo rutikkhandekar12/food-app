@@ -1,15 +1,12 @@
 import { Box, Button, Heading } from "@chakra-ui/react";
 import "./MenuNavbar.scss";
-import menuStyle from "./MenuSearch.module.scss";
 import Login from "../../../pages/authentication/Login";
-import Search from "../../search-input/Search";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MenuNavbar = ({ cart, cartLen }) => {
   const navigate = useNavigate();
 
   return (
-    // gap={cart ? "720px" : "640px"}
     <Box className="menu-header" >
       <div className="menu-title">
         <Box display="flex" justifyContent="center" alignItems="center" p={3}>
