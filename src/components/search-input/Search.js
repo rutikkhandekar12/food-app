@@ -33,7 +33,7 @@ const Search = ({
 
   const { setLocation } = useContext(VariableContext);
 
-  styles = menuStyles || searchStyles;
+  const styles = menuStyles || searchStyles;
 
   const handleSearch = (e) => {
     const searchValue = e.target.value;
