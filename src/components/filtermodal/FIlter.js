@@ -1,18 +1,14 @@
-import {
-  Button,
-  Box
-} from "@chakra-ui/react";
+import { Button, Box } from "@chakra-ui/react";
 import "./Filter.scss";
 import { useState } from "react";
 
-const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
-
+const Filter = ({ setFilteredCard, filteredCard, allCard }) => {
   const [togglebtn, setToggleBtn] = useState({
     all: false,
     pureVeg: false,
     ratings: false,
     fast: false,
-    lessThan300: false
+    lessThan200: false,
   });
 
   const handleFilter = (type) => {
@@ -21,8 +17,8 @@ const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
       pureVeg: false,
       ratings: false,
       fast: false,
-      lessThan300: false,
-      [type]: !togglebtn[type]
+      lessThan200: false,
+      [type]: !togglebtn[type],
     });
 
     let newFilteredCard = [];
@@ -31,34 +27,33 @@ const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
         newFilteredCard = allCard;
         break;
       case "pureVeg":
-        newFilteredCard = !togglebtn.pureVeg? filteredCard.filter(
+        newFilteredCard = filteredCard.filter(
           (card) => card?.info?.veg === true
-        ): allCard
+        );
         break;
       case "ratings":
-        newFilteredCard = !togglebtn.ratings? filteredCard.filter(
+        newFilteredCard = filteredCard.filter(
           (card) => card?.info?.avgRating > 4
-        ): allCard
+        );
         break;
       case "fast":
-        newFilteredCard = !togglebtn.fast? filteredCard.filter((card) => {
+        newFilteredCard = filteredCard.filter((card) => {
           if (card?.info?.sla?.slaString === "15-20 mins") {
             return card;
           }
-        }): allCard;
+        });
         break;
-      case "lessThan300":
-        newFilteredCard = !togglebtn.lessThan300? filteredCard.filter(
+      case "lessThan200":
+        newFilteredCard = filteredCard.filter(
           (card) =>
-            card?.info?.costForTwo === "₹350 for two" ||
-            "₹300 for two" ||
-            "₹400 for two" ||
-            "₹250 for two" ||
-            "₹500 for two"
-        ) : allCard;
+            card?.info?.costForTwo === "₹300 for two" ||
+            card?.info?.costForTwo === "₹250 for two" ||
+            card?.info?.costForTwo === "₹350 for two"
+        );
         break;
     }
     setFilteredCard(newFilteredCard);
+    console.log("filtered cards::", filteredCard);
   };
 
   return (
@@ -68,7 +63,7 @@ const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("all")}
-          bgColor={togglebtn.all? "black" : "white"}
+          bgColor={togglebtn.all ? "black" : "white"}
         >
           All
         </Button>
@@ -84,7 +79,7 @@ const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("ratings")}
-          bgColor={togglebtn.ratings? "black" : "white"}
+          bgColor={togglebtn.ratings ? "black" : "white"}
         >
           Ratings 4.0+
         </Button>
@@ -92,17 +87,17 @@ const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("fast")}
-          bgColor={togglebtn.fast? "black" : "white"}
+          bgColor={togglebtn.fast ? "black" : "white"}
         >
           Fast Delivery
         </Button>
         <Button
           colorScheme="teal"
           variant="outline"
-          onClick={() => handleFilter("lessThan300")}
-          bgColor={togglebtn.lessThan300? "black" : "white"}
+          onClick={() => handleFilter("lessThan200")}
+          bgColor={togglebtn.lessThan200 ? "black" : "white"}
         >
-          Less than Rs.300
+          Less than Rs.200
         </Button>
       </Box>
     </>

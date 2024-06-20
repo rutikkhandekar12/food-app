@@ -2,9 +2,14 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import "./MenuNavbar.scss";
 import Login from "../../../pages/authentication/Login";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import VariableContext from "../../../../context/VariableContext";
+import Drawer from "../../drawer/Drawer";
 
 const MenuNavbar = ({ cart, cartLen }) => {
+
   const navigate = useNavigate();
+  const { user } = useContext(VariableContext);
 
   return (
     <Box className="menu-header" >
@@ -42,7 +47,7 @@ const MenuNavbar = ({ cart, cartLen }) => {
         >
           Help
         </Button>
-        <Login />
+         { user? <Drawer/> : <li><Login /></li>}
       </Box>
     </Box>
   );
