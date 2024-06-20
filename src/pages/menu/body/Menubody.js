@@ -15,9 +15,9 @@ import { useParams } from "react-router-dom";
 import MenuOptions from "../menu-options/MenuOptions";
 import starIcon from "../../../assets/star.png";
 import Footer from "../../home/footer/Footer";
-import menuFooter from "../MenuFooter.module.scss";
+import * as menuFooter from "../MenuFooter.module.scss";
 import Shimmer from "../../../components/shimmer-effect/Shimmer";
-import menuShimmerStyle from "../../../components/shimmer-effect/MenuShimmer.module.scss";
+import * as menuShimmerStyle from "../../../components/shimmer-effect/MenuShimmer.module.scss";
 
 const Menubody = () => {
   const { id } = useParams();

@@ -2,7 +2,6 @@ import {
   Button,
   Box
 } from "@chakra-ui/react";
-import Button from "../../components/button/Button";
 import "./Filter.scss";
 import { useState } from "react";
 

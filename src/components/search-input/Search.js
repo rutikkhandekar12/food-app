@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import useFilter from "../../utils/useFilter";
 import SearchList from "../searchlist/SearchList";
-import searchStyle from "./Search.module.scss";
+import * as searchStyles from "./Search.module.scss";
 import { useContext, useState } from "react";
 import serchIcon from "../../assets/search.png";
 import location from "../../assets/location.png";
@@ -24,7 +24,7 @@ const Search = ({
   setSearch,
   search,
   allCard,
-  menuStyle,
+  menuStyles,
   cart,
 }) => {
   const [resultList, setResultList] = useState([]);
@@ -33,7 +33,7 @@ const Search = ({
 
   const { setLocation } = useContext(VariableContext);
 
-  styles = menuStyle || searchStyle;
+  styles = menuStyles || searchStyles;
 
   const handleSearch = (e) => {
     const searchValue = e.target.value;

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import shimmerStyle from "./Shimmer.module.scss";
+import * as shimmerStyle from "./Shimmer.module.scss";
 
 const Shimmer = ({newLoad, menuShimmerStyle}) => {
 

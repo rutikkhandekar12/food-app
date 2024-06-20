@@ -19,10 +19,6 @@ const VariableProvider = ({children}) => {
     });
   },[])
 
-
-
-
-
   return (
     <VariableContext.Provider value={{ location, setLocation, user}}>
       {children}
