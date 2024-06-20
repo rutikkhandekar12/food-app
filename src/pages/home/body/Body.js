@@ -11,7 +11,7 @@ import { debounce } from "lodash";
 import VariableContext from "../../../../context/VariableContext";
 import { useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../../Firebase";
+import { auth } from "../../../../src/Firebase";
 
 const Body = () => {
   const [search, setSearch] = useState("");

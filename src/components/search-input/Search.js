@@ -75,7 +75,6 @@ const Search = ({
 
   return (
     <div className={styles.search}>
-      {!menuStyle && (
         <Accordion allowMultiple>
           <AccordionItem
             className={styles["location-detector"]}
@@ -124,7 +123,7 @@ const Search = ({
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
-      )}
+
       <Box position="relative">
         <Image
           src={serchIcon}

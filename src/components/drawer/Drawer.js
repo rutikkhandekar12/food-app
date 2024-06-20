@@ -20,7 +20,7 @@ import {
 import { useContext, useRef } from "react";
 import VariableContext from "../../../context/VariableContext";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../Firebase";
+import { auth } from "../../../src/Firebase";
 
 const MyDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

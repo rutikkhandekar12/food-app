@@ -16,7 +16,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../../../Firebase";
+import { auth } from "../../../src/Firebase";
 
 const SignUp = ({ onClose }) => {
   const [email, setEmail] = useState("");

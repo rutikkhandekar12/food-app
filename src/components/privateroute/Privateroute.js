@@ -1,5 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../Firebase";
+import { auth } from "../../../src/Firebase";
 import { Navigate } from "react-router-dom";
 
 const Privateroute = ({ children }) => {

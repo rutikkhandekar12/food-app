@@ -27,7 +27,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useToast } from "@chakra-ui/react";
-import { auth } from "../../../Firebase";
+import { auth } from "../../../src/Firebase";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
