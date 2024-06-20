@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import Navbar from "../../../components/navbar/Navbar";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import "./Header.scss";
-import { Button, Heading, Image, Input, Box, Text } from "@chakra-ui/react";
-import MenuContext from "../../../utils/MenuContext";
+import { Heading, Image, Input, Box, Text } from "@chakra-ui/react";
 import foodIcon from "../../../assets/restaurant.png";
 import { useSelector } from "react-redux";
 

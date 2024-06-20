@@ -16,9 +16,8 @@ import { useContext, useState } from "react";
 import serchIcon from "../../assets/search.png";
 import location from "../../assets/location.png";
 import detector from "../../assets/detector.png";
-import { useDispatch } from "react-redux";
 import axios from "axios";
-import LocationContext from "../../context/LocationContext";
+import VariableContext from "../../../context/VariableContext";
 
 const Search = ({
   setFilteredCard,
@@ -28,13 +27,11 @@ const Search = ({
   menuStyle,
   cart,
 }) => {
-  const [enter, setEnter] = useState(false);
   const [resultList, setResultList] = useState([]);
   const [city, setCity] = useState("Guidy");
   const [state, setState] = useState("Chennai");
-  const dispatch = useDispatch();
 
-  const { setLocation } = useContext(LocationContext);
+  const { setLocation } = useContext(VariableContext);
 
   styles = menuStyle || searchStyle;
 
@@ -72,11 +69,9 @@ const Search = ({
   };
 
   const handleDetectLocation = () => {
-    console.log("handlelocation detection");
     const obj = navigator.geolocation.getCurrentPosition(
       successLocation,
     );
-    console.log(obj);
   };
 
   return (
@@ -88,6 +83,7 @@ const Search = ({
             borderBottomWidth="0px"
             borderTopWidth="0px"
             borderRadius="5px"
+            maxW="fit-content"
           >
             <h2>
               <AccordionButton _expanded={{ bg: "#163c48", color: "white" }}>
@@ -139,6 +135,7 @@ const Search = ({
           left="8px"
           objectFit="cover"
           zIndex="100"
+          className={styles["search-icon"]}
         />
         {!cart && (
           <Input

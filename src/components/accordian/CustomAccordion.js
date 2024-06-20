@@ -9,8 +9,6 @@ import {
 import MenuCard from "../../pages/menu/menu-card/MenuCard";
 
 const CustomAccordion = ({title, itemCards}) => {
-  
-  // console.log("neeeeeee props: ",props);
 
   return (
     <Accordion allowMultiple>

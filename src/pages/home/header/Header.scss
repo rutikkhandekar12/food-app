@@ -32,3 +32,34 @@
 }
 
 
+@media (max-width: 780px) {
+   .header-slogan{
+      p{
+        visibility: hidden;
+      }
+   }
+}
+
+@media (max-width: 480px) {
+  .header{
+    width: calc(100% + 51px);
+  }
+
+  .header-slogan{
+    img{
+      visibility: hidden;
+    }
+ }
+}
+
+@media (max-width: 360px) {
+  .header {
+    width: 100%;
+  }
+
+  .title{
+    h2{
+      margin-top: 28px;
+    }
+  }
+}

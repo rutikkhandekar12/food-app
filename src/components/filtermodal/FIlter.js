@@ -1,63 +1,65 @@
 import {
-  Modal,
-  ModalCloseButton,
-  ModalContent,
-  ModalBody,
   Button,
-  ModalHeader,
-  ModalFooter,
-  ModalOverlay,
-  Modal,
-  useDisclosure,
-  Box,
-  Image,
-  Text,
-  Radio,
-  Checkbox,
-  WrapItem,
+  Box
 } from "@chakra-ui/react";
 import Button from "../../components/button/Button";
-import filterIcon from "../../assets/filterIcon.png";
 import "./Filter.scss";
 import { useState } from "react";
 
-const Filter = ({ setFilteredCard, filteredCard }) => {
+const Filter = ({ setFilteredCard, filteredCard, allCard}) => {
+
+  const [togglebtn, setToggleBtn] = useState({
+    all: false,
+    pureVeg: false,
+    ratings: false,
+    fast: false,
+    lessThan300: false
+  });
+
   const handleFilter = (type) => {
+    setToggleBtn({
+      all: false,
+      pureVeg: false,
+      ratings: false,
+      fast: false,
+      lessThan300: false,
+      [type]: !togglebtn[type]
+    });
+
     let newFilteredCard = [];
     switch (type) {
       case "all":
-        newFilteredCard = filteredCard.filter((card) => card);
+        newFilteredCard = allCard;
         break;
       case "pureVeg":
-        newFilteredCard = filteredCard.filter(
+        newFilteredCard = !togglebtn.pureVeg? filteredCard.filter(
           (card) => card?.info?.veg === true
-        );
+        ): allCard
         break;
       case "ratings":
-        newFilteredCard = filteredCard.filter(
+        newFilteredCard = !togglebtn.ratings? filteredCard.filter(
           (card) => card?.info?.avgRating > 4
-        );
+        ): allCard
         break;
       case "fast":
-        newFilteredCard = filteredCard.filter((card) => {
+        newFilteredCard = !togglebtn.fast? filteredCard.filter((card) => {
           if (card?.info?.sla?.slaString === "15-20 mins") {
             return card;
           }
-        });
+        }): allCard;
         break;
       case "lessThan300":
-        newFilteredCard = filteredCard.filter(
+        newFilteredCard = !togglebtn.lessThan300? filteredCard.filter(
           (card) =>
             card?.info?.costForTwo === "₹350 for two" ||
             "₹300 for two" ||
             "₹400 for two" ||
             "₹250 for two" ||
             "₹500 for two"
-        );
+        ) : allCard;
         break;
     }
     setFilteredCard(newFilteredCard);
-    console.log("filtered result::", newFilteredCard);
   };
 
   return (
@@ -67,6 +69,7 @@ const Filter = ({ setFilteredCard, filteredCard }) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("all")}
+          bgColor={togglebtn.all? "black" : "white"}
         >
           All
         </Button>
@@ -74,6 +77,7 @@ const Filter = ({ setFilteredCard, filteredCard }) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("pureVeg")}
+          bgColor={togglebtn.pureVeg ? "black" : "white"}
         >
           Pure Veg
         </Button>
@@ -81,6 +85,7 @@ const Filter = ({ setFilteredCard, filteredCard }) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("ratings")}
+          bgColor={togglebtn.ratings? "black" : "white"}
         >
           Ratings 4.0+
         </Button>
@@ -88,6 +93,7 @@ const Filter = ({ setFilteredCard, filteredCard }) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("fast")}
+          bgColor={togglebtn.fast? "black" : "white"}
         >
           Fast Delivery
         </Button>
@@ -95,6 +101,7 @@ const Filter = ({ setFilteredCard, filteredCard }) => {
           colorScheme="teal"
           variant="outline"
           onClick={() => handleFilter("lessThan300")}
+          bgColor={togglebtn.lessThan300? "black" : "white"}
         >
           Less than Rs.300
         </Button>

@@ -1,18 +1,17 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider, MenuCommand } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Help from "./src/pages/help/Help";
 import Home from "./src/pages/home/Home";
 import Cart from "./src/pages/cart/Cart";
-import Offers from "./src/pages/offers/Offers";
 import Menu from "./src/pages/menu/Menu";
-import MenuCard from "./src/pages/menu/menu-card/MenuCard";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./store";
 import { store } from "./store";
-import LocationProvider from "./src/context/locationProvider";
+import VariableProvider from "./context/VariableProvider";
+import Privateroute from "./src/components/privateroute/Privateroute";
 
 const About = lazy(() => import("./src/pages/about/About"));
 
@@ -30,16 +29,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/offers",
-    element: <Offers />,
-  },
-  {
     path: "/help",
     element: <Help />,
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: <Privateroute><Cart /></Privateroute>,
   },
   {
     path: "/menu/:id",
@@ -52,11 +47,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <LocationProvider>
+      <VariableProvider>
         <ChakraProvider>
           <RouterProvider router={router} />
         </ChakraProvider>
-      </LocationProvider>
+      </VariableProvider>
     </PersistGate>
   </Provider>
 );

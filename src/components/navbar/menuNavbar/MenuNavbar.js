@@ -9,7 +9,8 @@ const MenuNavbar = ({ cart, cartLen }) => {
   const navigate = useNavigate();
 
   return (
-    <Box className="menu-header" gap={cart ? "720px" : "640px"}>
+    // gap={cart ? "720px" : "640px"}
+    <Box className="menu-header" >
       <div className="menu-title">
         <Box display="flex" justifyContent="center" alignItems="center" p={3}>
           <Heading

@@ -4,3 +4,10 @@
     margin-top: 27px;
     border-bottom-width: 7px;
 }
+
+@media (max-width: 360px) {
+    .acco-items{
+        width: 100% !important;
+        width: calc(100% + 45px) !important;
+    }
+}

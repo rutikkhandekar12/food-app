@@ -1,37 +1,38 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import Card from "../../../components/card/Card";
 import Carousel from "../../../components/carousel/Carousel";
-import { cards } from "../../../../Config/Config";
 import Shimmer from "../../../components/shimmer-effect/Shimmer";
 import Search from "../../../components/search-input/Search";
-import MenuContext from "../../../utils/MenuContext";
-import {
-  Heading,
-  Box,
-  Input,
-  Image,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Heading, Box, useToast } from "@chakra-ui/react";
 import "./Body.scss";
 import axios from "axios";
 import Filter from "../../../components/filtermodal/FIlter";
 import { debounce } from "lodash";
-import LocationContext from "../../../context/LocationContext";
+import VariableContext from "../../../../context/VariableContext";
+import { useLocation } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../../Firebase";
 
 const Body = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
-  const [allCard, setAllCard] = useState([]);
-  const [page, setPage] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
   const [filteredCard, setFilteredCard] = useState([]);
-  const { isOpen, onClose, onOpen } = useDisclosure();
-  const { location } = useContext(LocationContext);
+  const [allCard, setAllCard] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { location } = useContext(VariableContext);
   const eventRef = useRef(null);
+  const toast = useToast();
+  const loc = useLocation();
+  const [user] = useAuthState(auth);
 
-  console.log("lat.....",location.lat);
-  console.log("long........",location.long);
+  if (!user && loc.state?.message) {
+    toast({
+      title: "Please login to access the cart!!",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+    });
+  }
 
   useEffect(() => {
     getData();
@@ -41,19 +42,14 @@ const Body = () => {
     const scrollPosition =
       document.documentElement.scrollTop + window.innerHeight;
     const scrollHeight = document.documentElement.scrollHeight;
-    const scrollThreshold = 20;
 
     if (scrollPosition + 1 >= scrollHeight) {
-      console.log("handle remove event call.......");
-      console.log("hasMore...:::", hasMore);
       removeEventListener("scroll", eventRef.current);
-      setHasMore(false);
       return;
     }
 
-    if (scrollPosition + 300 >= scrollHeight && hasMore) {
-      console.log("hasMore...:::", hasMore);
-      console.log("loding new cards........");
+    if (scrollPosition + 300 >= scrollHeight) {
+      setIsLoading(true);
       try {
         const data = await axios.get(
           `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
@@ -63,26 +59,23 @@ const Body = () => {
           data?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants || [];
 
-        // If newCards is empty, there's no more data
-        if (newCards.length === 0) {
-          setHasMore(false);
-        } else {
-          setAllCard((prevCard) => [...prevCard, ...newCards]);
-          setFilteredCard((prevCard) => [...prevCard, ...newCards]);
-        }
+        setAllCard((prevCard) => [...(prevCard || []), ...newCards]);
+        setFilteredCard((prevCard) => [...(prevCard || []), ...newCards]);
+        // }
       } catch (error) {
         console.error("There was a problem with your axios operation:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
   };
 
   eventRef.current = debounce(handleInfiniteScroll, 100);
-
   useEffect(() => {
     addEventListener("scroll", eventRef.current);
 
     return () => removeEventListener("scroll", eventRef.current);
-  }, [hasMore]);
+  }, []);
 
   async function getData() {
     try {
@@ -126,19 +119,21 @@ const Body = () => {
         }
         title={data?.cards[1]?.card?.card.header?.title}
       />
-      <Box mt="3rem">
+      <Box mt="3rem" className="grid-card-heading">
         <Heading as="h2" fontSize="24px" mb="1rem">
           {data?.cards[2]?.card?.card?.title}
         </Heading>
-        <Filter setFilteredCard={setFilteredCard} filteredCard={filteredCard} />
+        <Filter setFilteredCard={setFilteredCard} filteredCard={filteredCard} allCard={allCard}/>
         <Box className="restaurant-grid-card">
-          {filteredCard?.map((data) => {
-            return (
-              <>
-                <Card {...data?.info} grid="grid" key={data?.info?.id} />
-              </>
-            );
-          })}
+          {filteredCard?.length > 0 &&
+            filteredCard?.map((data) => {
+              return (
+                <>
+                  <Card {...data?.info} grid="grid" key={data?.info?.id} />
+                </>
+              );
+            })}
+          {isLoading && <Shimmer newLoad="newLoad" />}
         </Box>
       </Box>
     </Box>

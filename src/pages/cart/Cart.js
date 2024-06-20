@@ -25,6 +25,7 @@ import MenuNavbar from "../../components/navbar/menuNavbar/MenuNavbar";
 import { useSelector } from "react-redux";
 import rupee from "../../assets/rupee.png";
 import CartItem from "./CartItem";
+import "./Cart.scss";
 
 const Cart = () => {
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
@@ -40,27 +41,9 @@ const Cart = () => {
   const toast = useToast();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log("cartItems::", cartItems);
-
-  // const cartItems = [
-  //   {
-  //     id: 1,
-  //     name: "Burger",
-  //     price: 8.99,
-  //     quantity: 2,
-  //     image: "https://via.placeholder.com/100",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Pizza",
-  //     price: 12.99,
-  //     quantity: 1,
-  //     image: "https://via.placeholder.com/100",
-  //   },
-  // ];
-
-  const deliveryCharge = 40; // Sample delivery charge
-  const estimatedTime = 30; // Sample estimated time in minutes
+  
+  const deliveryCharge = 40; 
+  const estimatedTime = 30; 
 
   const calculateSubtotal = () => {
     const subtotal = cartItems.reduce((acc, item) => {
@@ -107,11 +90,11 @@ const Cart = () => {
       <MenuNavbar cart="cart" />
       <Box
         p={6}
-        w={["100%", "80%", "60%"]}
         m="auto"
         bg="gray.50"
         borderRadius="md"
         boxShadow="md"
+        className="cart-container"
       >
         <Heading as="h2" size="xl" mb={6} textAlign="center">
           Your Cart
@@ -221,7 +204,7 @@ const Cart = () => {
           width="100%"
           onClick={handleCheckout}
         >
-          Checkout
+          Pay
         </Button>
 
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -277,7 +260,7 @@ const Cart = () => {
 
             <ModalFooter>
               <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Confirm
+                Confirm Pay
               </Button>
               <Button variant="ghost" onClick={onClose}>
                 Cancel

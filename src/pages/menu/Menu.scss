@@ -80,3 +80,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #565f69; 
 }
+
+@media (max-width: 360px) {
+  .card-menu{
+    margin: 13px !important;
+  }
+}

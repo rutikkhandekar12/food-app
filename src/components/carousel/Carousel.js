@@ -23,7 +23,7 @@ const Carousel = ({suggestions, title}) => {
         <Heading as="h2" fontSize="24px">
           {title}
         </Heading>
-        <Box display="flex" gap="34px">
+        <Box display="flex" gap="34px" zIndex="10 !important">
           <Button onClick={() => handleScroll("right")} borderRadius="20px"><ChevronLeftIcon/></Button>
           <Button onClick={() => handleScroll("left")} borderRadius="20px"><ChevronRightIcon/></Button>
         </Box>

@@ -1,19 +1,13 @@
 import {
   Heading,
-  Card,
-  Stack,
-  CardBody,
   Text,
   Box,
   Step,
   StepIndicator,
-  useSteps,
   StepStatus,
   StepTitle,
-  StepDescription,
   StepSeparator,
   StepIcon,
-  StepNumber,
   Stepper,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -22,6 +16,8 @@ import MenuOptions from "../menu-options/MenuOptions";
 import starIcon from "../../../assets/star.png";
 import Footer from "../../home/footer/Footer";
 import menuFooter from "../MenuFooter.module.scss";
+import Shimmer from "../../../components/shimmer-effect/Shimmer";
+import menuShimmerStyle from "../../../components/shimmer-effect/MenuShimmer.module.scss";
 
 const Menubody = () => {
   const { id } = useParams();
@@ -43,15 +39,14 @@ const Menubody = () => {
       setMenuOpt(
         data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
       );
-      caches.log("data from api: ", data);
     } catch (error) {
       console.log("error: ", error);
     }
   }
 
-
-
-  return (
+  return menuOpt?.length === 0 ? (
+    <Shimmer menuShimmerStyle={menuShimmerStyle} />
+  ) : (
     <>
       <div className="card-menu">
         <Heading as="h2" size="lg" className="title-restau">
@@ -106,14 +101,14 @@ const Menubody = () => {
           <Box>
             <Text className="dist-fees">
               {" "}
-              {menu[2]?.card?.card?.info?.expectationNotifiers[0] !== null &&
+              {menu[2]?.card?.card?.info?.expectationNotifiers?.[0] &&
                 menu[2]?.card?.card?.info?.expectationNotifiers[0]?.enrichedText?.replace(
                   /<[^>]*>/g,
                   ""
                 )}
             </Text>
           </Box>
-          <Box className="list-items">
+          <Box className="list-items" w="100%">
             {menuOpt?.map((item) => {
               if (item?.card?.card?.title) {
                 return (
@@ -125,10 +120,9 @@ const Menubody = () => {
               }
             })}
           </Box>
-          <Footer menuFooter={menuFooter}/>
+          <Footer menuFooter={menuFooter} />
         </Box>
       </div>
-      
     </>
   );
 };

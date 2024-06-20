@@ -1,24 +1,28 @@
-import "./Shimmer.scss";
+import { Box } from "@chakra-ui/react";
+import shimmerStyle from "./Shimmer.module.scss";
 
-const Shimmer = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const Shimmer = ({newLoad, menuShimmerStyle}) => {
+
+  const styles = menuShimmerStyle || shimmerStyle;
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
     <>
-      <div className="shimmer-container">
+      { !newLoad && <div className={styles["top-container"]}></div>}
+      <Box className={styles["shimmer-container"]} display={newLoad? "contents": " "}>
         {arr.map((value, index) => {
           return (
-            <div className="shimmer" key={index}>
-              <div className="shimmer-img"></div>
-              <div className="shimmer-info">
-                <p className="name"></p>
-                <p className="rating"></p>
-                <p className="cuisine"></p>
+            <div className={styles["shimmer"]} key={index}>
+              { !menuShimmerStyle && <div className={styles["shimmer-img"]}></div>}
+              <div className={styles["shimmer-info"]}>
+                { !menuShimmerStyle && <p className={styles["name"]}></p>}
+                <p className={styles["rating"]}></p>
+                <p className={styles["cuisine"]}></p>
               </div>
             </div>
           );
         })}
-      </div>
+      </Box>
     </>
   );
 };
