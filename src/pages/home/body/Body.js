@@ -56,8 +56,11 @@ const Body = () => {
         );
 
         const newCards =
-          data?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants || [];
+          window.innerWidth > 885
+            ? data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+                ?.restaurants
+            : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+                ?.restaurants;
 
         setAllCard((prevCard) => [...(prevCard || []), ...newCards]);
         setFilteredCard((prevCard) => [...(prevCard || []), ...newCards]);
@@ -84,14 +87,18 @@ const Body = () => {
       );
       const data = await res.json();
       setData(data?.data);
-      setAllCard(
-        data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-      setFilteredCard(
-        data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
+
+      const restaurants =
+        window.innerWidth > 885
+          ? data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants
+          : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+
+      setAllCard(restaurants);
+      setFilteredCard(restaurants);
+
+      console.log("fetched restaurants::", restaurants);
     } catch (error) {
       console.error(error);
     }
@@ -107,23 +114,35 @@ const Body = () => {
         search={search}
         allCard={allCard}
       />
-      <Carousel
-        suggestions={
-          data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
-        }
-        title={data?.cards[0]?.card?.card.header?.title}
-      />
-      <Carousel
-        suggestions={
-          data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        }
-        title={data?.cards[1]?.card?.card.header?.title}
-      />
+      {window.innerWidth > 885 ? (
+        <Carousel
+          suggestions={
+            data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
+          }
+          title={data?.cards[0]?.card?.card.header?.title}
+        />
+      ) : (
+        " "
+      )}
+      {window.innerWidth > 885 ? (
+        <Carousel
+          suggestions={
+            data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          }
+          title={data?.cards[1]?.card?.card.header?.title}
+        />
+      ) : (
+        " "
+      )}
       <Box mt="3rem" className="grid-card-heading">
         <Heading as="h2" fontSize="24px" mb="1rem">
           {data?.cards[2]?.card?.card?.title}
         </Heading>
-        <Filter setFilteredCard={setFilteredCard} filteredCard={filteredCard} allCard={allCard}/>
+        <Filter
+          setFilteredCard={setFilteredCard}
+          filteredCard={filteredCard}
+          allCard={allCard}
+        />
         <Box className="restaurant-grid-card">
           {filteredCard?.length > 0 &&
             filteredCard?.map((data) => {

@@ -36,9 +36,12 @@ const Menubody = () => {
       );
       const data = await res.json();
       setMenu(data?.data?.cards);
-      setMenuOpt(
-        data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-      );
+
+      const menuFetched =
+        window.innerWidth > 884
+          ? data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+          : data?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+      setMenuOpt(menuFetched);
     } catch (error) {
       console.log("error: ", error);
     }
