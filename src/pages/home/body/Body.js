@@ -51,9 +51,10 @@ const Body = () => {
     if (scrollPosition + 300 >= scrollHeight) {
       setIsLoading(true);
       try {
-        const data = await axios.get(
+        const res = await fetch(
           `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
+        const data = await res.json();
 
         const newCards =
           window.innerWidth > 885
@@ -62,9 +63,11 @@ const Body = () => {
             : data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
                 ?.restaurants;
 
-        setAllCard((prevCard) => [...(prevCard || []), ...newCards]);
-        setFilteredCard((prevCard) => [...(prevCard || []), ...newCards]);
-        // }
+        setAllCard((prevCard) => [...(prevCard || []), ...(newCards || [])]);
+        setFilteredCard((prevCard) => [
+          ...(prevCard || []),
+          ...(newCards || []),
+        ]);
       } catch (error) {
         console.error("There was a problem with your axios operation:", error);
       } finally {
@@ -114,7 +117,9 @@ const Body = () => {
         search={search}
         allCard={allCard}
       />
-      {window.innerWidth > 885 ? (
+      {window.innerWidth > 885 &&
+      data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info?.length >
+        0 ? (
         <Carousel
           suggestions={
             data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
@@ -124,7 +129,9 @@ const Body = () => {
       ) : (
         " "
       )}
-      {window.innerWidth > 885 ? (
+      {window.innerWidth > 885 &&
+      data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        ?.length > 0 ? (
         <Carousel
           suggestions={
             data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants

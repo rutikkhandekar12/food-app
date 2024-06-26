@@ -47,7 +47,7 @@ const MenuNavbar = ({ cart, cartLen }) => {
         >
           Help
         </Button>
-         { user? <Drawer/> : <li><Login /></li>}
+         { user? <Drawer/> : <Login />}
       </Box>
     </Box>
   );
