@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721815813175" clover="3.2.0">
-  <project timestamp="1721815813176" name="All files">
-    <metrics statements="196" coveredstatements="109" conditionals="84" coveredconditionals="27" methods="67" coveredmethods="21" elements="347" coveredelements="157" complexity="0" loc="196" ncloc="196" packages="22" files="31" classes="31"/>
+<coverage generated="1721837267168" clover="3.2.0">
+  <project timestamp="1721837267168" name="All files">
+    <metrics statements="216" coveredstatements="139" conditionals="79" coveredconditionals="41" methods="72" coveredmethods="32" elements="367" coveredelements="212" complexity="0" loc="216" ncloc="216" packages="23" files="34" classes="34"/>
     <package name="Config">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Config.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\Config\Config.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
       </file>
       <file name="firebaseConfig.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\Config\firebaseConfig.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -20,7 +20,7 @@
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="VariableContext.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\context\VariableContext.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src">
@@ -41,8 +41,16 @@
       </file>
     </package>
     <package name="src.assets">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="detector.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\detector.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
       <file name="foodBazaarTeam.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\foodBazaarTeam.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="location.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\location.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
@@ -56,13 +64,13 @@
       </file>
       <file name="rupee.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\rupee.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="search.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\search.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
       </file>
       <file name="star-icon.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\star-icon.png">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-      </file>
-      <file name="star.png" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\assets\star.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
@@ -71,7 +79,7 @@
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="CustomAccordion.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\components\accordian\CustomAccordion.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
       </file>
@@ -144,15 +152,61 @@
         <line num="46" count="0" type="stmt"/>
       </file>
     </package>
+    <package name="src.components.search-input">
+      <metrics statements="31" coveredstatements="19" conditionals="7" coveredconditionals="4" methods="8" coveredmethods="5"/>
+      <file name="Search.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\components\search-input\Search.js">
+        <metrics statements="31" coveredstatements="19" conditionals="7" coveredconditionals="4" methods="8" coveredmethods="5"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.searchlist">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="SearchList.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\components\searchlist\SearchList.js">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="src.components.shimmer-effect">
-      <metrics statements="5" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="8" methods="2" coveredmethods="2"/>
       <file name="Shimmer.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\components\shimmer-effect\Shimmer.js">
-        <metrics statements="5" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="8" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.about">
@@ -278,7 +332,7 @@
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Footer.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\pages\home\footer\Footer.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="9" count="1" type="stmt"/>
       </file>
@@ -295,33 +349,11 @@
         <line num="18" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.menu.body">
-      <metrics statements="16" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="Menubody.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\pages\menu\body\Menubody.js">
-        <metrics statements="16" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="117" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="src.pages.menu.menu-card">
       <metrics statements="13" coveredstatements="8" conditionals="12" coveredconditionals="4" methods="6" coveredmethods="1"/>
       <file name="MenuCard.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\pages\menu\menu-card\MenuCard.js">
         <metrics statements="13" coveredstatements="8" conditionals="12" coveredconditionals="4" methods="6" coveredmethods="1"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
@@ -336,25 +368,25 @@
         <line num="46" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.pages.menu.menu-options">
-      <metrics statements="4" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="MenuOptions.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\pages\menu\menu-options\MenuOptions.js">
-        <metrics statements="4" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="src.slice">
       <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="cartSlice.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\slice\cartSlice.js">
         <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="4" count="6" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="useFilter.js" path="C:\Users\rutik\OneDrive\Desktop\Acciojob Projects\React-zero-to-hero\FoodDelivery-app\src\utils\useFilter.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
   </project>

@@ -8,7 +8,7 @@ it("testing card component",()=>{
 
     const {getByText} = render(
         <BrowserRouter>
-            <Card {...CardData}/>
+            <Card {...CardData.info}/>
         </BrowserRouter>
     )
 

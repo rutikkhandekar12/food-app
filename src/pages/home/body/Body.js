@@ -5,7 +5,6 @@ import Shimmer from "../../../components/shimmer-effect/Shimmer";
 import Search from "../../../components/search-input/Search";
 import { Heading, Box, useToast } from "@chakra-ui/react";
 import "./Body.scss";
-import axios from "axios";
 import Filter from "../../../components/filtermodal/FIlter";
 import { debounce } from "lodash";
 import VariableContext from "../../../../context/VariableContext";

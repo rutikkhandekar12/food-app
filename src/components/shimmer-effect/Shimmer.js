@@ -9,7 +9,7 @@ const Shimmer = ({newLoad, menuShimmerStyle}) => {
   return (
     <>
       { !newLoad && <div className={styles["top-container"]}></div>}
-      <Box className={styles["shimmer-container"]} display={newLoad? "contents": " "}>
+      <Box className={styles["shimmer-container"]} display={newLoad? "contents": " "} data-testid="shimmer-container">
         {arr.map((value, index) => {
           return (
             <div className={styles["shimmer"]} key={index}>

@@ -82,6 +82,7 @@ const Search = ({
             borderTopWidth="0px"
             borderRadius="5px"
             maxW="fit-content"
+            data-testid="accordian"
           >
             <h2>
               <AccordionButton _expanded={{ bg: "#163c48", color: "white" }}>
