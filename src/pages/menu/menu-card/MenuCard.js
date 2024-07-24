@@ -88,18 +88,12 @@ const MenuCard = ({
           </Box>
         </Box>
         <Box
-          display="flex"
-          alignItems="center"
-          flexDirection="column"
-          justifyContent="space-between"
           className="item-img-btn"
         >
           {imageId ? (
             <>
               <Box
                 mr={4}
-                position="relative"
-                top="33px"
                 className="menu-items-for-mobile"
               >
                 <Image
@@ -110,12 +104,8 @@ const MenuCard = ({
                 />
               </Box>
               <Box
-                position="absolute"
-                bottom="-2.5"
-                display="flex"
-                alignItems="center"
-                gap="8px"
                 className="add-btn"
+                
               >
                 <AddIcon
                   borderRadius="3px"
@@ -139,7 +129,7 @@ const MenuCard = ({
               </Box>
             </>
           ) : (
-            <Box position="absolute" bottom="-2.5">
+            <Box className="add-btn-without-img">
               <AddIcon
                 borderRadius="3px"
                 bg="#319795"

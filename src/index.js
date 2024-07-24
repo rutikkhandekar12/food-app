@@ -8,8 +8,8 @@ import Cart from "./pages/cart/Cart";
 import Menu from "./pages/menu/Menu";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistor } from "../store";
-import { store } from "../store";
+import { persistor } from "./store";
+import { store } from "./store";
 import VariableProvider from "../context/VariableProvider";
 import Privateroute from "./components/privateroute/Privateroute";
 

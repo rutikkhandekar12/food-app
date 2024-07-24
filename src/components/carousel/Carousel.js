@@ -4,7 +4,7 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import Card from "../card/Card";
 import "./Carousel.scss";
 
-const Carousel = ({suggestions, title}) => {
+const Carousel = ({ suggestions, title }) => {
   const scrollRef = useRef(null);
 
   const handleScroll = (direction) => {
@@ -24,11 +24,23 @@ const Carousel = ({suggestions, title}) => {
           {title}
         </Heading>
         <Box display="flex" gap="34px" zIndex="10 !important">
-          <Button onClick={() => handleScroll("right")} borderRadius="20px"><ChevronLeftIcon/></Button>
-          <Button onClick={() => handleScroll("left")} borderRadius="20px"><ChevronRightIcon/></Button>
+          <Button
+            onClick={() => handleScroll("right")}
+            borderRadius="20px"
+            data-testid="right-btn"
+          >
+            <ChevronLeftIcon />
+          </Button>
+          <Button
+            onClick={() => handleScroll("left")}
+            borderRadius="20px"
+            data-testid="left-btn"
+          >
+            <ChevronRightIcon />
+          </Button>
         </Box>
       </Box>
-      <Box className="carousel-card" ref={scrollRef}>
+      <Box className="carousel-card" ref={scrollRef} data-testid="carousel">
         {suggestions?.map((data) => {
           return (
             <>

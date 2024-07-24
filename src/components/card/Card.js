@@ -23,7 +23,7 @@ const Card = ({
     <Link to={`/menu/${id}`}>
       <div className={action? "top-carousal-card" : grid? "grid-card" : "card"}>
         <div className="card-img">
-          <img src={imageSrc} alt="card-image" />
+          <img src={imageSrc} alt="card-image"/>
         </div>
         { !action && <div className="info">
           <h2 className="title">{name}</h2>

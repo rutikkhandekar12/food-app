@@ -102,7 +102,7 @@ const Login = () => {
           <Tabs isFitted variant="enclosed">
             <TabList>
               <Tab>Login</Tab>
-              <Tab>SingUp</Tab>
+              <Tab>SignUp</Tab>
             </TabList>
             <TabPanels p="23px">
               <TabPanel>

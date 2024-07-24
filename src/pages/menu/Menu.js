@@ -1,5 +1,5 @@
 import "./Menu.scss";
-import Body from "./body/Menubody";
+import Menubody from "./body/Menubody";
 import { Outlet, useNavigate } from "react-router-dom";
 import MenuNavbar from "../../components/navbar/menuNavbar/MenuNavbar";
 import { useState, useEffect } from "react";
@@ -18,7 +18,7 @@ const Menu = () => {
   return (
     <div className="menu">
       <MenuNavbar cartLen={cartLen} />
-      <Body />
+      <Menubody />
     </div>
   );
 };

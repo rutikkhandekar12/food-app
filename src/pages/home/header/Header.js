@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "../../../components/navbar/Navbar";
 import { useState } from "react";
 import "./Header.scss";
-import { Heading, Image, Input, Box, Text } from "@chakra-ui/react";
+import { Heading, Image, Box, Text } from "@chakra-ui/react";
 import foodIcon from "../../../assets/restaurant.png";
 import { useSelector } from "react-redux";
 

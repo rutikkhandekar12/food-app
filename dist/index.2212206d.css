@@ -46,7 +46,7 @@
 
 .top-carousal-card {
   width: 155px;
-  height: auto;
+  height: 180px;
 }
 
 .grid-card {
@@ -730,8 +730,6 @@
 .item-img-btn {
   width: 28%;
   position: relative;
-  top: -11px;
-  left: 12px;
 }
 
 .item-img-btn img {
@@ -791,6 +789,25 @@
   display: flex;
 }
 
+.add-btn {
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  display: flex;
+  position: absolute;
+  bottom: 22px;
+  right: 38px;
+}
+
+.add-btn-without-img {
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  display: flex;
+  position: relative;
+  top: 42px;
+}
+
 @media (width <= 360px) {
   .item-card {
     flex-direction: column;
@@ -801,12 +818,19 @@
 
   .menu-items-for-mobile img {
     max-width: 165px;
-    margin-left: 38px;
+    margin-left: 3px;
   }
 
   .add-btn {
-    margin-bottom: 16px;
-    margin-left: 28px;
+    min-width: 165px;
+    position: absolute;
+    bottom: 6px;
+    left: 2px;
+  }
+
+  .add-btn-without-img {
+    width: 159px;
+    top: -20px;
   }
 }
 
