@@ -11,13 +11,14 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Heading,
-  Stack,
   Text,
   useDisclosure,
   useToast,
   WrapItem,
 } from "@chakra-ui/react";
 import { useContext, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { clearAllCart } from "../../slice/cartSlice";
 import VariableContext from "../../../context/VariableContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../src/Firebase";
@@ -27,8 +28,11 @@ const MyDrawer = () => {
   const btnRef = useRef();
   const { user } = useContext(VariableContext);
   const toast = useToast();
+  const dispatch = useDispatch();
 
   const logout = () => {
+    dispatch(clearAllCart());
+    
     signOut(auth);
 
     toast({

@@ -66,12 +66,12 @@ const About = () => {
           boxShadow="lg"
         >
           <Text fontSize="lg" color={textColor}>
-            Welcome to FoodBaajar, your number one source for all things food.
+            Welcome to FoodBaazar, your number one source for all things food.
             We're dedicated to giving you the very best of meals, with a focus
             on quality, customer service, and uniqueness.
           </Text>
           <Text fontSize="lg" color={textColor}>
-            Founded in 2023 by a group of food enthusiasts, FoodBaajar has come
+            Founded in 2023 by a group of food enthusiasts, FoodBaazar has come
             a long way from its beginnings in a small kitchen. When we first
             started out, our passion for delicious and convenient meals drove us
             to quit our day jobs, do tons of research, and turn hard work and
@@ -163,7 +163,7 @@ const About = () => {
             Our Vision
           </Heading>
           <Text fontSize="lg" color={textColor}>
-            At FoodBaajar, our vision is to become the leading food delivery
+            At FoodBaazar, our vision is to become the leading food delivery
             service by providing exceptional meals and outstanding customer
             service. We aim to create a community where food lovers can enjoy
             their favorite dishes conveniently and reliably.
