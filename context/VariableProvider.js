@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import VariableContext from "./VariableContext";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../src/Firebase";
+import { auth } from "../public/Firebase";
 
 const VariableProvider = ({children}) => {
   const [user, setUser] = useState(null);
